@@ -1,174 +1,132 @@
-/* Global Reset and Font */
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    background: linear-gradient(135deg, #00feba, #5b548a); /* လှပသော နောက်ခံအရောင် */
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    background-color: #ADD8E6; /* မူလ နောက်ခံအရောင် */
+    transition: background-color 0.8s ease;
 }
 
-/* Main App Container */
-.weather-app {
-    background: rgba(255, 255, 255, 0.2); /* အကြည်ရောင်နောက်ခံ */
-    color: #fff;
-    padding: 40px;
-    border-radius: 20px;
+.container {
     width: 90%;
-    max-width: 450px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px); /* မှုန်ဝါးဝါး အကျိုးသက်ရောက်မှု */
-    text-align: center;
-}
-
-.weather-app h1 {
-    font-size: 1.8rem;
-    margin-bottom: 25px;
-    font-weight: 700;
-}
-
-/* Search Box Styling */
-.search-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: #ebfffc;
-    border-radius: 30px;
-    padding: 5px;
-    margin-bottom: 30px;
-}
-
-.search-box input {
-    border: 0;
-    outline: 0;
-    background: transparent;
-    color: #555;
-    padding: 10px 20px;
-    flex: 1;
-    font-size: 1rem;
-}
-
-.search-box button {
-    border: 0;
-    outline: 0;
-    background: #467972; /* ခလုတ်အရောင် */
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    transition: background 0.3s;
-    color: #fff;
-}
-
-.search-box button:hover {
-    background: #3a625d;
-}
-
-/* Error Message */
-.error-msg {
-    color: #ffcccc;
-    font-size: 0.9rem;
-    margin-top: -20px;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-
-/* Weather Display Styling */
-.weather-data {
-    transition: all 0.5s ease;
-}
-
-.weather-icon {
-    width: 120px;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
 
-#city-name {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-top: 5px;
+h1 {
+    text-align: center;
+    color: #333;
 }
 
-.date-time {
-    font-size: 0.9rem;
-    font-weight: 300;
+/* ရှာဖွေမှု နေရာ */
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    width: 70%;
+    max-width: 400px;
+    font-size: 16px;
+}
+#search-button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 16px;
+}
+#search-button:hover {
+    background-color: #0056b3;
+}
+
+/* Content နေရာ (ရာသီဥတု + မြေပုံ) */
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.weather-info {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* မြေပုံ နေရာ */
+#map {
+    flex: 2;
+    min-width: 350px;
+    height: 400px; /* မြေပုံ အမြင့် သတ်မှတ်ခြင်း */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    z-index: 1; /* မြေပုံကို အခြား Elements တွေအောက်မှာ မရောက်အောင် */
+}
+
+/* ရာသီဥတု အချက်အလက် */
+#location {
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+#temperature {
+    font-size: 3.5em;
+    color: #dc3545;
+    margin: 0;
+}
+#description {
+    font-size: 1.2em;
+    text-transform: capitalize;
     margin-bottom: 15px;
 }
-
-.main-temp-section {
-    margin: 20px 0;
+#additional-info p {
+    margin: 5px 0;
+    font-size: 0.9em;
 }
 
-.temperature {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
+/* မြို့စာရင်းအတွက် CSS */
+#cities-list {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
 }
-
-.description {
-    font-size: 1.2rem;
-    font-weight: 400;
-    text-transform: capitalize;
-    margin-top: 5px;
-}
-
-/* Details Section (Humidity & Wind) */
-.details {
+#cities-list ul {
+    list-style-type: none;
+    padding: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    margin-top: 40px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+#cities-list li {
+    background-color: #e9ecef;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.9em;
+}
+#cities-list li:hover {
+    background-color: #d8dee3;
 }
 
-.col {
-    display: flex;
-    align-items: center;
-    text-align: left;
-}
-
-.col i {
-    font-size: 2.5rem;
-    margin-right: 15px;
-}
-
-.col p:first-child {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.col p:last-child {
-    font-size: 0.8rem;
-    font-weight: 300;
-    opacity: 0.8;
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-    .weather-app {
-        padding: 25px;
-    }
-    .temperature {
-        font-size: 3rem;
-    }
-    #city-name {
-        font-size: 2rem;
-    }
-    .details {
-        flex-direction: column;
-        gap: 20px;
-        padding: 0;
-    }
-    .col {
-        width: 100%;
-        justify-content: center;
-    }
-}
+/* Background အရောင်များ (script.js မှ ခေါ်ယူရန်) */
+.clear-sky { background-color: #7EC0EE; }
+.cloudy-sky { background-color: #A9A9A9; }
+.rainy-sky { background-color: #4682B4; color: white; }
+.thunder-sky { background-color: #4B0082; color: white; }
+.mist-fog-sky { background-color: #D3D3D3; }
