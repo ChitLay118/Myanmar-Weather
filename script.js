@@ -1,7 +1,8 @@
 /**
- * WY MovieBox - Main JavaScript Logic (v1.6)
- * * Key changes:
- * - Movie Card Layout adjusted for Mobile 5-column grid and aspect-square thumbnails (text-[0.6rem]).
+ * WY MovieBox - Main JavaScript Logic (v1.7)
+ * * Key features:
+ * - Fixed/Sticky elements support (Header, Player, Nav Bar).
+ * - Mobile 5-column grid with small text for movie cards.
  */
 
 // Global state variables
@@ -43,7 +44,7 @@ async function loadDataFromJSON() {
         const data = await response.json();
         videos = data.videos || {};
         translations = data.translations || {};
-        console.log("Data loaded successfully from JSON.");
+        console.log("Data loaded successfully from JSON. (v1.7)");
     } catch (e) {
         console.error("Failed to load JSON data. Ensure the 'videos_photos.json' file exists.", e);
         showCustomAlert("Error", "JSON ဒေတာကို ဖတ်ယူနိုင်ခြင်း မရှိပါ။");
@@ -57,7 +58,6 @@ function generateVideoIds() {
     for (const category in videos) {
         if (Array.isArray(videos[category])) {
             videos[category].forEach((movie, index) => {
-                // Creates a unique ID like "action-0", "drama-1", etc.
                 movie.id = `${category}-${index}`; 
             });
         }
@@ -65,7 +65,7 @@ function generateVideoIds() {
 }
 
 /**
- * Loads user state and initializes the app. (Called from index.html module script)
+ * Loads user state and initializes the app.
  */
 window.initializeApp = async function() {
     await loadDataFromJSON();
@@ -78,27 +78,19 @@ window.initializeApp = async function() {
 
     generateVideoIds();
 
-    // Load Settings
+    // Load Settings and Favorites
     const storedSettings = localStorage.getItem('userSettings');
+    const storedFavorites = localStorage.getItem('favorites');
+    
     try {
-        if (storedSettings) {
-            currentSettings = { ...defaultSettings, ...JSON.parse(storedSettings) };
-        } else {
-            currentSettings = { ...defaultSettings };
-        }
+        currentSettings = storedSettings ? { ...defaultSettings, ...JSON.parse(storedSettings) } : { ...defaultSettings };
     } catch (e) {
         currentSettings = { ...defaultSettings };
     }
     
-    // Load Favorites
-    const storedFavorites = localStorage.getItem('favorites');
     try {
-        if (storedFavorites) {
-            favorites = JSON.parse(storedFavorites);
-            if (!Array.isArray(favorites)) favorites = [];
-        } else {
-            favorites = [];
-        }
+        favorites = storedFavorites ? JSON.parse(storedFavorites) : [];
+        if (!Array.isArray(favorites)) favorites = [];
     } catch (e) {
         favorites = [];
     }
@@ -229,7 +221,7 @@ function applySettings() {
     const { theme, language } = currentSettings;
     const isLight = theme === 'light';
 
-    // Apply Theme
+    // Apply Theme (using Tailwind classes defined in style.css)
     const bodyRoot = document.getElementById('body-root');
     const headerSticky = document.getElementById('header-sticky');
     const navBar = document.getElementById('nav-bar');
