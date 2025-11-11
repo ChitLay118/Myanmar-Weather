@@ -1,4 +1,4 @@
-/* style.css (v1.7) */
+/* style.css (v1.8 - Nav Bar Fix) */
 
 /* Scrollbar ဖျောက်ထားခြင်း (optional but good for mobile aesthetics) */
 .overflow-x-auto::-webkit-scrollbar,
@@ -13,7 +13,7 @@ body {
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Base Styles: Tailwind class များကို မူရင်းအရောင်များဖြင့် သတ်မှတ်ခြင်း */
+/* Base Styles: မူရင်းအရောင်များ */
 .bg-darkbg {
     background-color: #121212;
 }
@@ -25,6 +25,20 @@ body {
 .text-primary {
     color: #FF5722; /* Orange-Red for emphasis */
 }
+
+/* ----------------------------------------------------------------- */
+/* !!! NAVIGATION BAR FIX: Ensure it is absolutely fixed to the bottom */
+/* ----------------------------------------------------------------- */
+#nav-bar {
+    position: fixed !important; /* Tailwind's fixed class ကို ပို၍ အားကောင်းစေရန် */
+    bottom: 0 !important;      /* အောက်ခြေတွင် ကပ်ရန် */
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    z-index: 50;              /* အခြား element များအပေါ်တွင် ရှိစေရန် */
+}
+/* ----------------------------------------------------------------- */
+
 
 /* Movie Card Styles: Ensure text is very small for 5 columns */
 .movie-card-bg {
