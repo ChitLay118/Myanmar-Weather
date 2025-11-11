@@ -1,50 +1,23 @@
-/* style.css (v2.0 - Blue Theme & Nav Bar Fix) */
+/* Custom CSS styles if needed, mainly for non-tailwind things or specific overrides */
 
-/* Scrollbar ဖျောက်ထားခြင်း (optional but good for mobile aesthetics) */
-.overflow-x-auto::-webkit-scrollbar,
-.overflow-y-scroll::-webkit-scrollbar,
-body::-webkit-scrollbar {
+/* Hide scrollbar for category menu but allow scrolling */
+#menu-bar::-webkit-scrollbar {
     display: none;
 }
-.overflow-x-auto,
-.overflow-y-scroll,
-body {
+#menu-bar {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Base Styles: Tailwind class များကို မူရင်းအရောင်များနှင့် အပြာရောင်ဖြင့် သတ်မှတ်ခြင်း */
+/* Basic body styles that Tailwind doesn't fully cover */
 .bg-darkbg {
-    background-color: #121212;
+    background-color: #1A1A1A; /* Dark Gray/Black for main background */
 }
 
 .bg-midbg {
-    background-color: #1e1e1e;
+    background-color: #262626; /* Slightly lighter gray for nav bars/modals */
 }
 
-/* !!! PRIMARY COLOR: Blue (Tailwind Blue-500) */
 .text-primary {
-    color: #3b82f6; 
-}
-.bg-primary {
-    background-color: #3b82f6;
-}
-
-/* ----------------------------------------------------------------- */
-/* !!! NAVIGATION BAR FIX: Ensure it is absolutely fixed to the bottom */
-/* ----------------------------------------------------------------- */
-#nav-bar {
-    position: fixed !important; /* Tailwind's fixed class ကို ပို၍ အားကောင်းစေရန် */
-    bottom: 0 !important;      /* အောက်ခြေတွင် ကပ်ရန် */
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    z-index: 50;              /* အခြား element များအပေါ်တွင် ရှိစေရန် */
-}
-/* ----------------------------------------------------------------- */
-
-
-/* Movie Card Styles: Ensure text is very small for 5 columns */
-.movie-card-bg {
-    will-change: transform; 
+    color: #FFD700; /* Gold/Yellow for highlights */
 }
