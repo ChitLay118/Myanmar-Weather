@@ -6,7 +6,7 @@
     <title data-i18n="title">WY MovieBox</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="module">
-        // [Existing Firebase/App Initialization Script is here...]
+        // [Firebase Initialization Script remains the same]
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, getDocs, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -76,9 +76,9 @@
 
     <main id="main-content" class="max-w-full mx-auto p-4 min-h-[calc(100vh-160px)] flex flex-col">
 
-        <div id="player-container" class="w-full max-w-3xl mx-auto rounded-xl overflow-hidden relative shadow-2xl shadow-primary/30 bg-black **sticky top-20 z-20** mb-6 aspect-video">
+        <div id="player-container" class="w-full max-w-3xl mx-auto rounded-xl overflow-hidden relative shadow-2xl shadow-primary/30 bg-black **sticky top-[6rem] z-20** mb-6 aspect-video">
             
-            <iframe id="iframePlayer" class="w-full h-full **absolute top-0 left-0**" 
+            <iframe id="iframePlayer" class="w-full h-full absolute top-0 left-0" 
                         src="https://www.youtube.com/embed/YE7VzlLTP-4?autoplay=0" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -98,7 +98,7 @@
             </button>
         </div>
 
-        <section id="movies" class="grid **grid-cols-3 md:grid-cols-5** gap-4 justify-items-center flex-grow">
+        <section id="movies" class="grid **grid-cols-3 md:grid-cols-5 gap-1** justify-items-center flex-grow **px-1**">
         </section>
         
         <div id="custom-alert-modal" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" onclick="closeCustomAlert()">
@@ -121,7 +121,7 @@
 
     </main>
 
-    <nav id="nav-bar" class="fixed bottom-0 left-0 right-0 bg-midbg border-t border-gray-700 shadow-2xl shadow-black/80 z-40">
+    <nav id="nav-bar" class="fixed bottom-0 left-0 right-0 bg-midbg border-t border-gray-700 shadow-2xl shadow-black/80 **z-50**">
         <div class="max-w-xl mx-auto flex justify-around items-center h-16">
             
             <button class="nav-btn flex flex-col items-center justify-center space-y-1 p-2 text-primary font-bold transition-colors duration-200" data-nav="home" onclick="changeNav(this)">
