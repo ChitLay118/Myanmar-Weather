@@ -338,7 +338,8 @@ window.changeNav = function(btn) {
     // Reset grid/flex properties before content load
     moviesContainer.innerHTML = '';
     moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
-    moviesContainer.classList.add('grid', 'grid-cols-2', 'sm:grid-cols-3', 'md:grid-cols-4', 'lg:grid-cols-5', 'gap-4', 'justify-items-center');
+    // Ensure grid is set for non-profile views
+    moviesContainer.classList.add('grid', 'grid-cols-5', 'gap-4', 'justify-items-center');
 
     
     // Header/Player visibility
@@ -348,8 +349,8 @@ window.changeNav = function(btn) {
         if (currentTitleBar) currentTitleBar.classList.add('hidden'); 
         headerSticky.classList.remove('sticky'); 
         
-        // ** Profile view အတွက် moviesContainer ကို flex-col အဖြစ် ပြန်ပြောင်း **
-        moviesContainer.classList.remove('grid', 'grid-cols-2', 'sm:grid-cols-3', 'md:grid-cols-4', 'lg:grid-cols-5', 'gap-4', 'justify-items-center');
+        // Profile view အတွက် moviesContainer ကို flex-col အဖြစ် ပြန်ပြောင်း
+        moviesContainer.classList.remove('grid', 'grid-cols-5', 'gap-4', 'justify-items-center');
         moviesContainer.classList.add('flex', 'flex-col', 'w-full');
         
     } else {
@@ -572,7 +573,8 @@ function createMovieCard(movie) {
     const card = document.createElement('div');
     const bgColorClass = currentSettings.theme === 'light' ? 'bg-white' : 'bg-gray-800';
     
-    card.className = `movie-card-bg ${bgColorClass} rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer w-36 sm:w-40 flex flex-col`;
+    // w-full ကို ပြောင်းလဲထားသည် (Column ၅ ခုတွင် နေရာအပြည့်ယူရန်)
+    card.className = `movie-card-bg ${bgColorClass} rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer **w-full** flex flex-col`;
     card.setAttribute('data-movie-id', movieId);
 
     card.innerHTML = `
