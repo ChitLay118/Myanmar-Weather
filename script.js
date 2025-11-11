@@ -1,5 +1,10 @@
 /**
- * WY MovieBox - Main JavaScript Logic
+ * WY MovieBox - Main JavaScript Logic (v1.5)
+ * * Key features:
+ * - Firebase Authentication/Firestore setup (using global window.db/window.auth)
+ * - Settings (Theme/Language) and Favorites management via localStorage.
+ * - Proper UI rendering for Home, Trending, Favorites, and Profile views.
+ * - Movie Card Layout adjusted for Mobile 5-column grid and aspect-square thumbnails.
  */
 
 // Global state variables
@@ -9,7 +14,7 @@ let favorites = [];
 let currentPlayingMovie = null; 
 let currentSettings = {};
 
-// User ID fallback
+// User ID fallback (for non-Firebase environments)
 let userId = localStorage.getItem('localUserId') || crypto.randomUUID();
 if (localStorage.getItem('localUserId') === null) {
     localStorage.setItem('localUserId', userId);
@@ -62,7 +67,7 @@ function generateVideoIds() {
 }
 
 /**
- * Loads user state and initializes the app.
+ * Loads user state and initializes the app. (Called from index.html module script)
  */
 window.initializeApp = async function() {
     await loadDataFromJSON();
@@ -335,8 +340,8 @@ window.changeNav = function(btn) {
     // Reset grid/flex properties before content load
     moviesContainer.innerHTML = '';
     moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
-    // Ensure grid is set for non-profile views (grid-cols-3 md:grid-cols-5)
-    moviesContainer.classList.add('grid', 'grid-cols-3', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
+    // Ensure grid is set for non-profile views (grid-cols-5 md:grid-cols-5)
+    moviesContainer.classList.add('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
 
     
     // Header/Player visibility
@@ -347,7 +352,7 @@ window.changeNav = function(btn) {
         headerSticky.classList.remove('sticky'); 
         
         // Profile view အတွက် moviesContainer ကို flex-col အဖြစ် ပြန်ပြောင်း
-        moviesContainer.classList.remove('grid', 'grid-cols-3', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
+        moviesContainer.classList.remove('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
         moviesContainer.classList.add('flex', 'flex-col', 'w-full');
         
     } else {
@@ -407,10 +412,10 @@ window.showCategory = function(category, clickedButton) {
     }
 
     const categoryVideos = videos[category] || [];
-    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white">${t.selectCategory}: ${t[category]}</h2>`;
+    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.selectCategory}: ${t[category]}</h2>`; // col-span-5 added
 
     if (categoryVideos.length === 0) {
-        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full">${t.noContent}</p>`;
+        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noContent}</p>`; // col-span-5 added
         return;
     }
 
@@ -432,10 +437,10 @@ function displayTrending() {
 
     const trendingMovies = allMovies.slice(-10); 
     
-    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white">${t.trendingHeader}</h2>`;
+    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.trendingHeader}</h2>`; // col-span-5 added
     
     if (trendingMovies.length === 0) {
-        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full">${t.noContent}</p>`;
+        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noContent}</p>`; // col-span-5 added
         return;
     }
     
@@ -450,10 +455,10 @@ function displayFavorites() {
     
     const t = translations[currentSettings.language] || translations.english;
 
-    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white">${t.favoritesHeader}</h2>`;
+    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.favoritesHeader}</h2>`; // col-span-5 added
 
     if (favorites.length === 0) {
-        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full">${t.noFavorites}</p>`;
+        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noFavorites}</p>`; // col-span-5 added
         return;
     }
 
@@ -487,7 +492,7 @@ function displayProfileSettings() {
     const linkColorClass = currentSettings.theme === 'light' ? 'text-blue-600 hover:text-blue-800' : 'text-primary hover:text-white';
 
 
-    // Box ကို အလယ်ဗဟိုသို့ ရွှေ့ခြင်း (mx-auto)၊ အကျယ် max-w-5xl နှင့် အမြင့် h-full ယူခြင်း
+    // Box ကို အလယ်ဗဟိုသို့ ရွှေ့ခြင်း (mx-auto)၊ အကျယ် max-w-5xl ယူခြင်း
     moviesContainer.innerHTML = `
         <div class="w-full max-w-5xl mx-auto p-8 h-full rounded-xl shadow-2xl border ${bgColorClass} overflow-y-auto">
             <h2 class="text-3xl font-bold mb-8 text-primary text-center">${t.settingsTitle}</h2>
@@ -570,21 +575,20 @@ function createMovieCard(movie) {
     const card = document.createElement('div');
     const bgColorClass = currentSettings.theme === 'light' ? 'bg-white' : 'bg-gray-800';
     
-    // w-full ကို ပြောင်းလဲထားသည် (Column ၃/၅ ခုတွင် နေရာအပြည့်ယူရန်)
-    card.className = `movie-card-bg ${bgColorClass} rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer **w-full** flex flex-col`;
+    // w-full, aspect-square (1:1) and small text size for 5 columns
+    card.className = `movie-card-bg ${bgColorClass} rounded-lg shadow-md hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer **w-full** flex flex-col`;
     card.setAttribute('data-movie-id', movieId);
 
-    // ပုံသေအမြင့် (165px) ကိုဖယ်ရှားပြီး aspect-ratio (3:4) ကိုသုံးသည်။
     card.innerHTML = `
-        <div class="relative w-full **aspect-[3/4]**">
-            <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/110x165/1a1a1a/cccccc?text=Error'" class="w-full h-full **object-cover** rounded-t-xl **absolute**">
-            ${isFav ? `<div class="absolute top-2 left-2 text-red-500 z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        <div class="relative w-full **aspect-square**">
+            <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a1a1a/cccccc?text=WY'" class="w-full h-full **object-cover** rounded-t-lg **absolute**">
+            ${isFav ? `<div class="absolute top-1 left-1 text-red-500 z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             </div>` : ''}
         </div>
-        <div class="p-3 flex flex-col justify-between flex-grow">
-            <p class="text-sm font-medium leading-tight mb-1 truncate">${movie.title}</p>
-            <button onclick="window.playVideo(event, '${movieId}')" class="mt-2 text-xs font-semibold text-primary hover:text-black hover:bg-primary transition duration-200 py-1 px-2 rounded-full border border-primary">
+        <div class="p-1 flex flex-col justify-between flex-grow">
+            <p class="text-[0.6rem] font-medium leading-tight mb-1 truncate">${movie.title}</p> 
+            <button onclick="window.playVideo(event, '${movieId}')" class="mt-1 text-[0.6rem] font-semibold text-primary hover:text-black hover:bg-primary transition duration-200 py-1 px-1 rounded-full border border-primary">
                 ${t.nowPlaying}
             </button>
         </div>
@@ -617,7 +621,7 @@ window.playVideo = function(event, movieId) {
     if (movie) {
         currentPlayingMovie = movie; 
         
-        // Since MP4 logic is removed, we directly use the src for iframe
+        // Use the video's src for the iframe
         iframePlayer.src = movie.src; 
 
         titleEl.textContent = `${t.nowPlaying}: ${movie.title}`;
