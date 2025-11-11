@@ -1,4 +1,4 @@
-/* style.css (v1.6) */
+/* style.css (v1.6 - Color Revert) */
 
 /* Scrollbar ဖျောက်ထားခြင်း (optional but good for mobile aesthetics) */
 .overflow-x-auto::-webkit-scrollbar,
@@ -13,7 +13,12 @@ body {
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Base Styles (Tailwind handles most) */
+/* Base Styles: Tailwind class များကို အဓိက အရောင်များဖြင့် ပြန်လည်သတ်မှတ်ခြင်း */
+/* * Tailwind Class:    Color Value: 
+ * bg-darkbg      ->  #121212 
+ * bg-midbg       ->  #1e1e1e 
+ * text-primary   ->  #FF5722 (Orange-Red)
+ */
 .bg-darkbg {
     background-color: #121212;
 }
@@ -28,7 +33,6 @@ body {
 
 /* Movie Card Styles: Ensure text is very small for 5 columns */
 .movie-card-bg {
-    /* Tailwind's p-1, text-[0.6rem] handle small size. */
     /* This style ensures smooth transition on hover */
     will-change: transform; 
 }
