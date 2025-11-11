@@ -1,44 +1,158 @@
 <!DOCTYPE html>
-<html lang="my">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>မြန်မာနိုင်ငံ ရာသီဥတုမြေပုံ</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/S0ldDPLh9CwQcIswKjB6QxYyBBKk8gH/M4GzQ"
-       crossorigin=""/>
-       
-    <link rel="stylesheet" href="style.css">
+    <title data-i18n="title">WY MovieBox</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, getDocs, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        // Canvas Environment Variables
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        let firebaseConfig = {};
+        try {
+            firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        } catch (e) {
+            console.error("Error parsing __firebase_config:", e);
+        }
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        if (Object.keys(firebaseConfig).length > 0) {
+            const app = initializeApp(firebaseConfig);
+            window.db = getFirestore(app);
+            window.auth = getAuth(app);
+
+            // Global authentication process
+            onAuthStateChanged(window.auth, async (user) => {
+                if (user) {
+                    console.log("Authenticated user:", user.uid);
+                } else {
+                    console.log("No user signed in. Attempting sign-in...");
+                    try {
+                        if (initialAuthToken) {
+                            await signInWithCustomToken(window.auth, initialAuthToken);
+                        } else {
+                            await signInAnonymously(window.auth);
+                        }
+                        window.initializeApp();
+                    } catch (error) {
+                        console.error("Firebase Sign-in Error:", error);
+                    }
+                }
+            });
+            
+            // Expose Firestore functions globally
+            window.firestore = {
+                doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, getDocs, 
+                getPublicCollectionRef: (collectionName) => collection(window.db, `artifacts/${appId}/public/data/${collectionName}`)
+            };
+
+        } else {
+             console.warn("Firebase configuration is missing. Firestore operations will not work.");
+             window.initializeApp();
+        }
+
+    </script>
+    <link rel="stylesheet" href="style.css"> 
 </head>
-<body>
+<body id="body-root" class="bg-darkbg text-white min-h-screen pb-20 transition-colors duration-300">
 
-    <div class="container">
-        <h1>မြန်မာနိုင်ငံ ရာသီဥတု ရှာဖွေရေး</h1>
-
-        <div class="search-section">
-            <input type="text" id="search-input" placeholder="မြို့နာမည် (English) ဖြင့် ရိုက်ထည့်ပါ...">
-            <button id="search-button">ရှာမယ်</button>
-        </div>
-
-        <div class="content-wrapper">
-            <div class="weather-info">
-                <h2 id="location">---</h2>
-                <p id="temperature">--°C</p>
-                <p id="description">ရာသီဥတု အခြေအနေ</p>
-                <div id="additional-info"></div>
-                <div id="cities-list"></div>
-            </div>
-
-            <div id="map"></div>
+    <header id="header-sticky" class="sticky top-0 z-30 bg-darkbg p-4 border-b border-gray-700 shadow-xl">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 id="main-title" class="text-3xl font-extrabold text-primary" data-i18n="title">WY MovieBox</h1>
         </div>
         
-    </div>
+        <div id="menu-bar" class="max-w-4xl mx-auto mt-4 flex space-x-2 overflow-x-auto whitespace-nowrap py-1">
+            <button class="menu-btn active-category bg-primary text-black font-semibold px-4 py-2 rounded-full text-sm transition-all duration-200 hover:bg-opacity-90" data-category="action" data-i18n="action" onclick="showCategory('action', this)">လှုပ်ရှားမှု</button>
+            <button class="menu-btn bg-gray-800 text-white font-semibold px-2 py-1 rounded-full text-sm transition-all duration-200 hover:bg-gray-700" data-category="drama" data-i18n="drama" onclick="showCategory('drama', this)">ဒရာမာ</button>
+            <button class="menu-btn bg-gray-800 text-white font-semibold px-2 py-1 rounded-full text-sm transition-all duration-200 hover:bg-gray-700" data-category="cartoon" data-i18n="cartoon" onclick="showCategory('cartoon', this)">ကာတွန်း</button>
+            <button class="menu-btn bg-gray-800 text-white font-semibold px-2 py-1 rounded-full text-sm transition-all duration-200 hover:bg-gray-700" data-category="romance" data-i18n="romance" onclick="showCategory('romance', this)">အချစ်</button>
+            <button class="menu-btn bg-gray-800 text-white font-semibold px-2 py-1 rounded-full text-sm transition-all duration-200 hover:bg-gray-700" data-category="myanmar" data-i18n="myanmar" onclick="showCategory('myanmar', this)">မြန်မာ</button>
+        </div>
+    </header>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-       integrity="sha256-20n69zM4tP8dM75T4pC5Wf/Fk5x5N/yD9t+YxP2S9uA="
-       crossorigin=""></script>
-       
+    <main class="max-w-4xl mx-auto p-4">
+
+        <div id="player-container" class="w-full max-w-3xl mx-auto rounded-xl overflow-hidden relative shadow-2xl shadow-primary/30 bg-black mb-6 aspect-video">
+            
+            <iframe id="iframePlayer" class9="w-full h-full rounded-xl absolute top-0 left-0" 
+                        src="https://www.youtube.com/embed/YE7VzlLTP-4?autoplay=0" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+            </iframe>
+
+            <button onclick="toggleFullScreen()" class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 p-2 rounded-full text-white transition duration-200 z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </button>
+        </div>
+
+        <div class="max-w-3xl mx-auto flex justify-between items-center mb-6 px-2">
+            <p id="current-movie-title" class="text-xl font-semibold text-white/90" data-i18n="selectMovie">ရုပ်ရှင်ကို ရွေးချယ်ပါ</p>
+            
+            <button id="favorite-btn" onclick="toggleFavorite()" class="p-3 rounded-full transition duration-300 shadow-lg text-gray-500 hover:text-red-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+        </div>
+
+        <section id="movies" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 justify-items-center">
+        </section>
+        
+        <div id="custom-alert-modal" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" onclick="closeCustomAlert()">
+            <div class="bg-midbg p-6 rounded-lg shadow-2xl max-w-sm w-full text-white" onclick="event.stopPropagation()">
+                <h3 class="text-xl font-bold mb-3 text-primary" id="alert-title"></h3>
+                <p id="alert-message" class="mb-4"></p>
+                <button onclick="closeCustomAlert()" class="w-full bg-primary text-black font-semibold py-2 rounded-lg hover:bg-opacity-90 transition duration-200">OK</button>
+            </div>
+        </div>
+
+        <div id="adult-content-modal" class="hidden fixed inset-0 bg-black/90 z-50 flex flex-col p-4">
+            <div class="w-full flex justify-between items-center mb-4 pt-4">
+                <h2 class="text-3xl font-extrabold text-primary" data-i18n="title">WY MovieBox</h2>
+                <button onclick="closeAdultContentModal()" class="bg-primary text-black font-semibold py-2 px-4 rounded-full transition duration-200" data-i18n="navHome">မူလစာမျက်နှာ</button>
+            </div>
+            <div class="flex-grow w-full max-w-5xl mx-auto rounded-xl overflow-hidden relative shadow-2xl bg-black">
+                <iframe id="adult-iframe" class="w-full h-full" src="https://allkar.vercel.app/" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+    </main>
+
+    <nav id="nav-bar" class="fixed bottom-0 left-0 right-0 bg-midbg border-t border-gray-700 shadow-2xl shadow-black/80 z-40">
+        <div class="max-w-xl mx-auto flex justify-around items-center h-16">
+            
+            <button class="nav-btn flex flex-col items-center justify-center space-y-1 p-2 text-primary font-bold transition-colors duration-200" data-nav="home" onclick="changeNav(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M10 17v-6l2-2 2 2v6h5V8l-7-6-7 6v9h5z"/></svg>
+                <span class="text-xs" data-i18n="navHome">မူလစာမျက်နှာ</span>
+            </button>
+            
+            <button class="nav-btn flex flex-col items-center justify-center space-y-1 p-2 text-gray-400 hover:text-white transition-colors duration-200" data-nav="trending" onclick="changeNav(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 1.5l-4 4-4-4M6.5 18.5l4-4 4 4M1 12h22"/></svg>
+                <span class="text-xs" data-i18n="navTrending">ခေတ်စားနေသည်</span>
+            </button>
+
+            <button class="nav-btn flex flex-col items-center justify-center space-y-1 p-2 text-gray-400 hover:text-white transition-colors duration-200" data-nav="favorites" onclick="changeNav(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span class="text-xs" data-i18n="navFavorites">အနှစ်သက်ဆုံး</span>
+            </button>
+
+            <button class="nav-btn flex flex-col items-center justify-center space-y-1 p-2 text-gray-400 hover:text-white transition-colors duration-200" data-nav="profile" onclick="changeNav(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span class="text-xs" data-i18n="navProfile">အသုံးပြုသူ</span>
+            </button>
+        </div>
+    </nav>
+    
+    <footer class="fixed bottom-0 left-0 right-0 z-30 pointer-events-none">
+        <div class="max-w-4xl mx-auto p-2 text-center">
+            <p class="text-xs text-gray-500" id="app-version">About: version 9.8</p>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
+
 </body>
 </html>
