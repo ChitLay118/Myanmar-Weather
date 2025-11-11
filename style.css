@@ -1,4 +1,4 @@
-/* style.css (v1.8 - Nav Bar Fix) */
+/* style.css (v2.0 - Blue Theme & Nav Bar Fix) */
 
 /* Scrollbar ဖျောက်ထားခြင်း (optional but good for mobile aesthetics) */
 .overflow-x-auto::-webkit-scrollbar,
@@ -13,7 +13,7 @@ body {
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Base Styles: မူရင်းအရောင်များ */
+/* Base Styles: Tailwind class များကို မူရင်းအရောင်များနှင့် အပြာရောင်ဖြင့် သတ်မှတ်ခြင်း */
 .bg-darkbg {
     background-color: #121212;
 }
@@ -22,8 +22,12 @@ body {
     background-color: #1e1e1e;
 }
 
+/* !!! PRIMARY COLOR: Blue (Tailwind Blue-500) */
 .text-primary {
-    color: #FF5722; /* Orange-Red for emphasis */
+    color: #3b82f6; 
+}
+.bg-primary {
+    background-color: #3b82f6;
 }
 
 /* ----------------------------------------------------------------- */
