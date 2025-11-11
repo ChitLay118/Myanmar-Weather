@@ -339,7 +339,7 @@ window.changeNav = function(btn) {
     moviesContainer.innerHTML = '';
     moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
     // Ensure grid is set for non-profile views (grid-cols-3 md:grid-cols-5)
-    moviesContainer.classList.add('grid', 'grid-cols-3', 'md:grid-cols-5', 'gap-4', 'justify-items-center');
+    moviesContainer.classList.add('grid', 'grid-cols-3', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
 
     
     // Header/Player visibility
@@ -350,7 +350,7 @@ window.changeNav = function(btn) {
         headerSticky.classList.remove('sticky'); 
         
         // Profile view အတွက် moviesContainer ကို flex-col အဖြစ် ပြန်ပြောင်း
-        moviesContainer.classList.remove('grid', 'grid-cols-3', 'md:grid-cols-5', 'gap-4', 'justify-items-center');
+        moviesContainer.classList.remove('grid', 'grid-cols-3', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
         moviesContainer.classList.add('flex', 'flex-col', 'w-full');
         
     } else {
@@ -577,7 +577,7 @@ function createMovieCard(movie) {
     card.className = `movie-card-bg ${bgColorClass} rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer **w-full** flex flex-col`;
     card.setAttribute('data-movie-id', movieId);
 
-    // ပုံသေအမြင့် (165px) ကိုဖယ်ရှားပြီး aspect-ratio ကိုသုံးသည်။
+    // ပုံသေအမြင့် (165px) ကိုဖယ်ရှားပြီး aspect-ratio ကိုသုံးသည်။ (3:4)
     card.innerHTML = `
         <div class="relative w-full **aspect-[3/4]**">
             <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/110x165/1a1a1a/cccccc?text=Error'" class="w-full h-full **object-cover** rounded-t-xl **absolute**">
