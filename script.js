@@ -314,7 +314,6 @@ function applyLanguage(language) {
 
 /**
  * Changes the main view based on bottom navigation.
- * **(Nav Bar အလုပ်လုပ်ရန် ပြင်ဆင်ပြီး)**
  */
 window.changeNav = function(btn) {
     const nav = btn.dataset.nav;
@@ -336,7 +335,11 @@ window.changeNav = function(btn) {
     btn.classList.add('text-primary', 'font-bold');
     btn.classList.remove('text-gray-400', 'hover:text-white');
 
+    // Reset grid/flex properties before content load
     moviesContainer.innerHTML = '';
+    moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
+    moviesContainer.classList.add('grid', 'grid-cols-2', 'sm:grid-cols-3', 'md:grid-cols-4', 'lg:grid-cols-5', 'gap-4', 'justify-items-center');
+
     
     // Header/Player visibility
     if (nav === 'profile') {
@@ -344,6 +347,11 @@ window.changeNav = function(btn) {
         playerContainer.classList.add('hidden');
         if (currentTitleBar) currentTitleBar.classList.add('hidden'); 
         headerSticky.classList.remove('sticky'); 
+        
+        // ** Profile view အတွက် moviesContainer ကို flex-col အဖြစ် ပြန်ပြောင်း **
+        moviesContainer.classList.remove('grid', 'grid-cols-2', 'sm:grid-cols-3', 'md:grid-cols-4', 'lg:grid-cols-5', 'gap-4', 'justify-items-center');
+        moviesContainer.classList.add('flex', 'flex-col', 'w-full');
+        
     } else {
         menuBar.classList.remove('hidden');
         playerContainer.classList.remove('hidden');
@@ -461,7 +469,6 @@ function displayFavorites() {
 
 /**
  * Renders the full-width, full-height User Settings Box.
- * **(Box size ပြင်ဆင်ပြီး)**
  */
 function displayProfileSettings() {
     const moviesContainer = document.getElementById('movies');
@@ -482,9 +489,9 @@ function displayProfileSettings() {
     const linkColorClass = currentSettings.theme === 'light' ? 'text-blue-600 hover:text-blue-800' : 'text-primary hover:text-white';
 
 
-    // max-w-7xl (Screen အကျယ်နီးပါး) နှင့် h-full (ရနိုင်သော အမြင့်အပြည့်)
+    // Box ကို အလယ်ဗဟိုသို့ ရွှေ့ခြင်း (mx-auto)၊ အကျယ် max-w-5xl နှင့် အမြင့် h-full ယူခြင်း
     moviesContainer.innerHTML = `
-        <div class="w-full max-w-7xl mx-auto p-8 h-full rounded-xl shadow-2xl border ${bgColorClass}">
+        <div class="w-full max-w-5xl **mx-auto** p-8 **h-full** rounded-xl shadow-2xl border ${bgColorClass} **overflow-y-auto**">
             <h2 class="text-3xl font-bold mb-8 text-primary text-center">${t.settingsTitle}</h2>
             
             <form id="profile-info-form" onsubmit="event.preventDefault(); saveProfileInfo();" class="mb-8 p-4 rounded-lg border border-primary/50">
@@ -547,7 +554,7 @@ function displayProfileSettings() {
             </div>
         </div>
     `;
-    // Reapply language to new elements like profileInfoTitle, appearanceTitle, contactTitle, copyText
+    // Reapply language to new elements 
     applyLanguage(currentSettings.language);
 }
 
