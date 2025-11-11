@@ -117,7 +117,7 @@ window.initializeApp = async function() {
 // -------------------------------------------------------------------------
 
 /**
- * Saves current user NAME and EMAIL settings to localStorage. (NEW LOGIC)
+ * Saves current user NAME and EMAIL settings to localStorage. (UPDATED)
  */
 window.saveProfileInfo = function() {
     const t = translations[currentSettings.language] || translations.english;
@@ -136,7 +136,7 @@ window.saveProfileInfo = function() {
 }
 
 /**
- * Updates THEME and LANGUAGE settings immediately. (NEW LOGIC)
+ * Updates THEME and LANGUAGE settings immediately. (UPDATED)
  */
 window.updateQuickSettings = function(settingType, value) {
     const newSettings = { ...currentSettings };
@@ -324,7 +324,7 @@ window.changeNav = function(btn) {
     const moviesContainer = document.getElementById('movies');
     
     // Ensure adult modal is closed
-    closeAdultContentModal();
+    closeAdultContentModal(false); // Don't navigate to home, just close modal
 
     navBtns.forEach(b => {
         b.classList.remove('text-primary', 'font-bold');
@@ -480,7 +480,7 @@ function displayProfileSettings() {
             <h2 class="text-2xl font-bold mb-6 text-primary text-center">${t.settingsTitle}</h2>
             
             <form id="profile-info-form" onsubmit="event.preventDefault(); saveProfileInfo();" class="mb-8 p-4 rounded-lg border border-primary/50">
-                <p class="text-lg font-semibold mb-3">${t.profileInfoTitle}</p>
+                <p class="text-lg font-semibold mb-3" data-i18n="profileInfoTitle"></p>
                 
                 <div class="mb-4">
                     <label for="setting-name" class="block text-sm font-medium mb-1">${t.settingsName}</label>
@@ -498,7 +498,7 @@ function displayProfileSettings() {
             </form>
 
             <div class="mb-8 p-4 rounded-lg border border-gray-500/50">
-                <p class="text-lg font-semibold mb-3">${t.appearanceTitle}</p>
+                <p class="text-lg font-semibold mb-3" data-i18n="appearanceTitle"></p>
 
                 <div class="mb-4">
                     <label for="setting-theme" class="block text-sm font-medium mb-1">${t.settingsTheme}</label>
@@ -539,6 +539,8 @@ function displayProfileSettings() {
             </div>
         </div>
     `;
+    // Reapply language to new elements like profileInfoTitle, appearanceTitle, contactTitle, copyText
+    applyLanguage(currentSettings.language);
 }
 
 // -------------------------------------------------------------------------
@@ -671,17 +673,19 @@ window.openAdultContentModal = function() {
 }
 
 /**
- * Closes the Adult Content modal and returns to Home view. (NEW)
+ * Closes the Adult Content modal and optionally navigates to Home view. (NEW)
  */
-window.closeAdultContentModal = function() {
+window.closeAdultContentModal = function(shouldNavigateHome = true) {
     document.getElementById('adult-content-modal').classList.add('hidden');
     document.getElementById('adult-content-modal').classList.remove('flex');
     document.getElementById('nav-bar').classList.remove('hidden');
     
-    // Navigate back to home
-    const homeBtn = document.querySelector('.nav-btn[data-nav="home"]');
-    if (homeBtn) {
-        changeNav(homeBtn);
+    if (shouldNavigateHome) {
+        // Navigate back to home
+        const homeBtn = document.querySelector('.nav-btn[data-nav="home"]');
+        if (homeBtn) {
+            changeNav(homeBtn);
+        }
     }
 }
 
