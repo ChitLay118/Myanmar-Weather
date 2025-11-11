@@ -1,10 +1,10 @@
 /**
- * WY MovieBox - Main JavaScript Logic (v3.1 - Static Data & Layout Finalized)
+ * WY MovieBox - Main JavaScript Logic (v3.2 - Theme & Adult Webview Integration)
  * * Key features:
- * - **Firebase Removed:** No external database connection logic.
- * - **Static Data:** Rely solely on 'videos_photos.json'.
- * - **Robust Init:** Ensures buttons are enabled ONLY after data and UI state are ready.
- * - **Card Fix:** Uses aspect-video (16:9) ratio for correct thumbnail display.
+ * - **Static Data:** No Firebase. Trending data separated in JSON.
+ * - **Dynamic ID:** Movie IDs are generated on load.
+ * - **Theme Support:** Dark/Light mode toggle in Profile.
+ * - **Adult Webview:** Opens URL in a full-screen iframe modal.
  */
 
 // Global state variables
@@ -16,8 +16,11 @@ let currentSettings = {};
 
 const defaultSettings = {
     language: 'myanmar',
-    theme: 'dark', // Always dark for this project's CSS
+    theme: 'dark', // 'dark' or 'light'
 };
+
+const ADULT_WEBVIEW_URL = 'https://allkar.vercel.app/';
+
 
 // -------------------------------------------------------------------------
 // 1. DATA FETCHING AND INITIALIZATION
@@ -35,7 +38,7 @@ async function loadDataFromJSON() {
         const data = await response.json();
         videos = data.videos || {};
         translations = data.translations || {};
-        console.log("Data loaded successfully from JSON. (v3.1)");
+        console.log("Data loaded successfully from JSON. (v3.2)");
     } catch (e) {
         console.error("Failed to load JSON data. Content will be empty.", e);
         const t = translations.myanmar || { Error: "Error", jsonError: "ရုပ်ရှင်ဒေတာများ ဖတ်ယူနိုင်ခြင်း မရှိပါ (JSON Error)။" };
@@ -44,12 +47,15 @@ async function loadDataFromJSON() {
 }
 
 /**
- * Generates video IDs and ensures data structure validity.
+ * Generates unique video IDs for all movies after loading data.
+ * This replaces the need for hardcoding IDs in the JSON.
  */
 function generateVideoIds() {
     let idCounter = 1;
+    // Iterate through all categories including the new 'trending' key
     for (const category in videos) {
         videos[category] = videos[category].map(movie => {
+            // Check if movie already has an ID (safety check)
             if (!movie.id) {
                 movie.id = 'v' + idCounter++;
             }
@@ -58,20 +64,17 @@ function generateVideoIds() {
     }
 }
 
-/**
- * Enables all navigation and category buttons after the app is initialized.
- */
+// ... (enableButtons function remains the same) ...
+
 function enableButtons() {
     const navBar = document.getElementById('nav-bar');
     const menuBar = document.getElementById('menu-bar');
     const loadingIndicator = document.getElementById('loading-indicator');
     
-    // 1. Remove loading indicator
     if (loadingIndicator) {
         loadingIndicator.remove();
     }
     
-    // 2. Enable Navigation and Menu Bar
     navBar.classList.remove('pointer-events-none', 'opacity-50');
     menuBar.classList.remove('pointer-events-none', 'opacity-50');
 }
@@ -82,9 +85,8 @@ function enableButtons() {
  */
 window.initializeApp = async function() {
     
-    // 1. Load Data
     await loadDataFromJSON(); 
-    generateVideoIds();
+    generateVideoIds(); // IDs are generated after load
 
     // 2. Load Local State (Settings/Favorites)
     const storedSettings = localStorage.getItem('userSettings');
@@ -103,15 +105,14 @@ window.initializeApp = async function() {
         favorites = [];
     }
     
-    // 3. Apply Settings
+    // 3. Apply Settings (Theme and Language)
     applySettings();
     
-    // 4. CRITICAL: Enable Buttons ONLY after everything is loaded and applied
+    // 4. Enable Buttons
     enableButtons(); 
     
     const homeBtn = document.querySelector('.nav-btn[data-nav="home"]');
     if (homeBtn) {
-        // Render Home View/Category
         changeNav(homeBtn); 
     } else {
          console.error("Home navigation button not found.");
@@ -121,6 +122,7 @@ window.initializeApp = async function() {
 
 // -------------------------------------------------------------------------
 // 2. LOCAL STORAGE AND FAVORITES HANDLING (Unchanged)
+// ...
 // -------------------------------------------------------------------------
 
 function saveFavorites() {
@@ -165,11 +167,29 @@ function updateFavoriteButtonState(movieId) {
 
 
 // -------------------------------------------------------------------------
-// 3. UI AND VIEW MANAGEMENT (Navigation Logic - Unchanged)
+// 3. UI AND VIEW MANAGEMENT (Navigation Logic)
 // -------------------------------------------------------------------------
 
+/**
+ * Applies language and theme settings.
+ */
 function applySettings() {
     const lang = currentSettings.language;
+    const body = document.getElementById('body-root');
+    
+    // Theme Application
+    if (currentSettings.theme === 'light') {
+        body.classList.add('light-mode');
+        // Manually adjust the Header background (as it's sticky)
+        document.getElementById('header-sticky').classList.remove('bg-darkbg');
+        document.getElementById('header-sticky').classList.add('bg-midbg');
+    } else {
+        body.classList.remove('light-mode');
+        document.getElementById('header-sticky').classList.remove('bg-midbg');
+        document.getElementById('header-sticky').classList.add('bg-darkbg');
+    }
+
+    // Language Application
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         if (translations[lang] && translations[lang][key]) {
@@ -180,6 +200,28 @@ function applySettings() {
     });
 }
 
+/**
+ * Saves and changes the application theme.
+ */
+window.changeTheme = function(theme) {
+    currentSettings.theme = theme;
+    try {
+        localStorage.setItem('userSettings', JSON.stringify(currentSettings));
+    } catch (e) { /* Error */ }
+    
+    // Apply changes immediately
+    applySettings();
+    
+    // Re-render current view to apply new colors
+    const activeNavBtn = document.querySelector('.nav-btn.text-primary');
+    if (activeNavBtn) {
+        changeNav(activeNavBtn);
+    }
+}
+
+
+// ... (changeNav function remains the same as v3.1) ...
+
 window.changeNav = function(btn) {
     const nav = btn.dataset.nav;
     const navBtns = document.querySelectorAll('.nav-btn');
@@ -188,9 +230,7 @@ window.changeNav = function(btn) {
     const currentTitleBar = document.querySelector('.max-w-3xl.mx-auto.flex.justify-between.items-center.mb-6');
     const moviesContainer = document.getElementById('movies');
     
-    closeAdultContentModal(false); 
-
-    // Reset all nav buttons (CRITICAL for color change)
+    // Reset all nav buttons
     navBtns.forEach(b => {
         b.classList.remove('text-primary', 'font-bold');
         b.classList.add('text-gray-400', 'hover:text-white');
@@ -261,12 +301,12 @@ window.changeNav = function(btn) {
     }
 }
 
-// ... (displayTrending, displayFavorites, displayProfileSettings, changeLanguage functions remain the same) ...
-
 
 // -------------------------------------------------------------------------
-// 4. RENDERING LOGIC (Category/Trending/Favorites/Profile - Unchanged)
+// 4. RENDERING LOGIC (Category/Trending/Favorites/Profile)
 // -------------------------------------------------------------------------
+
+// ... (showCategory, displayFavorites functions remain the same) ...
 
 window.showCategory = function(category, btn) {
     const moviesContainer = document.getElementById('movies');
@@ -294,10 +334,15 @@ window.showCategory = function(category, btn) {
     });
 };
 
+
+/**
+ * Renders trending movies (using the new 'trending' key in JSON).
+ */
 function displayTrending() {
     const moviesContainer = document.getElementById('movies');
     const t = translations[currentSettings.language] || translations.myanmar;
-    const trendingMovies = (videos.action || []).slice(0, 10);
+    
+    const trendingMovies = videos.trending || []; 
     
     moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-full">${t.trendingTitle || 'Trending Movies'}</h2>`;
     
@@ -329,6 +374,10 @@ function displayFavorites() {
     });
 }
 
+
+/**
+ * Renders the profile/settings view with Theme and Adult Content button.
+ */
 function displayProfileSettings() {
     const moviesContainer = document.getElementById('movies');
     const t = translations[currentSettings.language] || translations.myanmar;
@@ -341,6 +390,14 @@ function displayProfileSettings() {
                 <h3 class="text-xl font-semibold mb-3">${t.settingsTitle || 'Settings'}</h3>
                 
                 <div class="flex justify-between items-center mb-4">
+                    <p>${t.themeLabel || 'Theme:'}</p>
+                    <select id="theme-select" onchange="changeTheme(this.value)" class="bg-gray-700 text-white p-2 rounded">
+                        <option value="dark" ${currentSettings.theme === 'dark' ? 'selected' : ''}>Dark</option>
+                        <option value="light" ${currentSettings.theme === 'light' ? 'selected' : ''}>Light</option>
+                    </select>
+                </div>
+
+                <div class="flex justify-between items-center mb-4">
                     <p>${t.languageLabel || 'Language:'}</p>
                     <select id="language-select" onchange="changeLanguage(this.value)" class="bg-gray-700 text-white p-2 rounded">
                         <option value="myanmar" ${currentSettings.language === 'myanmar' ? 'selected' : ''}>${t.langMyanmar || 'Myanmar'}</option>
@@ -348,17 +405,20 @@ function displayProfileSettings() {
                     </select>
                 </div>
                 
-                <div class="flex justify-between items-center mb-4">
-                    <p>${t.themeLabel || 'Theme:'}</p>
-                    <p class="text-gray-400">Dark (Default)</p>
-                </div>
-
                 <button onclick="localStorage.clear(); window.location.reload();" class="mt-4 w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2 rounded transition duration-200">
                     ${t.resetData || 'Reset App Data'}
                 </button>
             </div>
+
+            <button onclick="openAdultWebview()" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg shadow-xl flex items-center justify-center space-x-2 transition duration-200">
+                <span class="text-xl">🔞</span>
+                <span class="text-lg" data-i18n="adultContent">လူကြီးကားများကြည့်ရန် (18+)</span>
+            </button>
         </div>
     `;
+
+    // Ensure initial theme is reflected in the select box
+    document.getElementById('theme-select').value = currentSettings.theme;
 }
 
 window.changeLanguage = function(lang) {
@@ -375,13 +435,14 @@ window.changeLanguage = function(lang) {
 
 
 // -------------------------------------------------------------------------
-// 5. HELPER AND VIDEO FUNCTIONS (Card Fix Applied)
+// 5. HELPER AND VIDEO FUNCTIONS
 // -------------------------------------------------------------------------
 
 /**
  * Creates the HTML element for a single movie card.
  */
 function createMovieCard(movie) {
+    // ID is guaranteed to exist by generateVideoIds()
     const movieId = movie.id; 
     const isFav = favorites.includes(movieId); 
     const t = translations[currentSettings.language] || translations.myanmar;
@@ -391,7 +452,7 @@ function createMovieCard(movie) {
     card.className = `movie-card-bg ${bgColorClass} rounded-lg shadow-md hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer w-full flex flex-col`;
     card.setAttribute('data-movie-id', movieId);
 
-    // !!! CRITICAL FIX: aspect-video (16:9) ratio for correct thumbnail size.
+    // aspect-video (16:9) ratio
     card.innerHTML = `
         <div class="relative w-full aspect-video" onclick="window.playVideo('${movieId}')"> 
             <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a1a1a/cccccc?text=WY'" class="w-full h-full object-cover rounded-t-lg absolute">
@@ -409,6 +470,9 @@ function createMovieCard(movie) {
     return card;
 }
 
+/**
+ * Plays a video in the iframe. (No longer checks for movie.adult)
+ */
 window.playVideo = function(movieId) {
     const movie = findMovieById(movieId);
     
@@ -417,11 +481,6 @@ window.playVideo = function(movieId) {
         return;
     }
     
-    if (movie.adult === true) {
-        openAdultContentModal(movie);
-        return;
-    }
-
     currentPlayingMovie = movie;
 
     document.getElementById('iframePlayer').src = movie.src;
@@ -432,6 +491,7 @@ window.playVideo = function(movieId) {
 
 
 function findMovieById(id) {
+    // Check all categories and trending
     for (const category in videos) {
         const movie = videos[category].find(movie => movie.id === id);
         if (movie) return movie;
@@ -439,28 +499,40 @@ function findMovieById(id) {
     return null;
 }
 
+
 // ... (toggleFullScreen, showCustomAlert, closeCustomAlert functions remain the same) ...
 
-function openAdultContentModal(movie) {
-    const modal = document.getElementById('adult-content-modal');
-    const t = translations[currentSettings.language] || translations.myanmar;
 
-    document.getElementById('adult-movie-title').textContent = movie.title;
-    document.getElementById('adult-warning-text').textContent = t.adultWarning || "This content may be inappropriate for viewers under the age of 18.";
+// -------------------------------------------------------------------------
+// 6. ADULT WEBVIEW LOGIC
+// -------------------------------------------------------------------------
+
+/**
+ * Opens the full-screen iframe modal to the adult content URL.
+ */
+window.openAdultWebview = function() {
+    const modal = document.getElementById('adult-webview-modal');
+    const iframe = document.getElementById('adultWebviewIframe');
     
-    document.getElementById('adult-play-btn').onclick = () => {
-        closeAdultContentModal(true);
-        document.getElementById('iframePlayer').src = movie.src;
-        document.getElementById('current-movie-title').textContent = movie.title;
-        updateFavoriteButtonState(movie.id);
-    };
-
+    iframe.src = ADULT_WEBVIEW_URL;
     modal.classList.remove('hidden');
+    // Hide main content overflow if possible
+    document.body.style.overflow = 'hidden';
 }
 
-function closeAdultContentModal(confirmed = false) {
-    document.getElementById('adult-content-modal').classList.add('hidden');
+/**
+ * Closes the full-screen iframe modal and returns to the main app.
+ */
+window.closeAdultWebview = function() {
+    const modal = document.getElementById('adult-webview-modal');
+    const iframe = document.getElementById('adultWebviewIframe');
+    
+    // Stop the iframe content from playing/running
+    iframe.src = 'about:blank'; 
+    modal.classList.add('hidden');
+    document.body.style.overflow = '';
 }
+
 
 // Initial application load 
 window.addEventListener('DOMContentLoaded', () => {
