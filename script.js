@@ -1,8 +1,10 @@
 /**
- * WY MovieBox - Main JavaScript Logic (v1.7)
+ * WY MovieBox - Main JavaScript Logic (v2.0)
  * * Key features:
+ * - Blue (Primary) Theme for buttons/accents.
  * - Fixed/Sticky elements support (Header, Player, Nav Bar).
  * - Mobile 5-column grid with small text for movie cards.
+ * - Fixed layout issues for Trending/Favorites views.
  */
 
 // Global state variables
@@ -44,7 +46,7 @@ async function loadDataFromJSON() {
         const data = await response.json();
         videos = data.videos || {};
         translations = data.translations || {};
-        console.log("Data loaded successfully from JSON. (v1.7)");
+        console.log("Data loaded successfully from JSON. (v2.0)");
     } catch (e) {
         console.error("Failed to load JSON data. Ensure the 'videos_photos.json' file exists.", e);
         showCustomAlert("Error", "JSON ဒေတာကို ဖတ်ယူနိုင်ခြင်း မရှိပါ။");
@@ -205,7 +207,8 @@ function updateFavoriteButtonState(movieId) {
              <path d="${isFav ? fillPath : outlinePath}"/>
         </svg>
     `;
-    favoriteBtn.classList.toggle('text-red-500', isFav);
+    // !!! Blue for Favorite Icon
+    favoriteBtn.classList.toggle('text-primary', isFav); // text-primary is blue
     favoriteBtn.classList.toggle('text-gray-400', !isFav);
 }
 
@@ -226,6 +229,7 @@ function applySettings() {
     const headerSticky = document.getElementById('header-sticky');
     const navBar = document.getElementById('nav-bar');
     
+    // ... (Theme switching logic remains the same) ...
     bodyRoot.classList.toggle('bg-gray-100', isLight);
     bodyRoot.classList.toggle('text-gray-900', isLight);
     bodyRoot.classList.toggle('bg-darkbg', !isLight);
@@ -287,6 +291,7 @@ function applyLanguage(language) {
             btn.textContent = t[categoryKey];
         }
         if (!btn.classList.contains('active-category')) {
+             // ... (Category button inactive styling logic remains the same) ...
              btn.classList.remove('bg-gray-800', 'text-white', 'bg-gray-200', 'text-gray-800', 'hover:bg-gray-700', 'hover:bg-gray-300');
              btn.classList.add(isLight ? 'bg-gray-200' : 'bg-gray-800', isLight ? 'text-gray-800' : 'text-white');
              btn.classList.add(isLight ? 'hover:bg-gray-300' : 'hover:bg-gray-700');
@@ -320,6 +325,7 @@ window.changeNav = function(btn) {
     closeAdultContentModal(false); 
 
     navBtns.forEach(b => {
+        // !!! Nav button color change to Blue (text-primary)
         b.classList.remove('text-primary', 'font-bold');
         b.classList.add('text-gray-400', 'hover:text-white');
     });
@@ -341,7 +347,7 @@ window.changeNav = function(btn) {
         headerSticky.classList.remove('sticky'); 
         
         // Profile view အတွက် moviesContainer ကို flex-col အဖြစ် ပြန်ပြောင်း
-        moviesContainer.classList.remove('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
+        moviesContainer.classList.remove('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-2', 'justify-items-center', 'px-0');
         moviesContainer.classList.add('flex', 'flex-col', 'w-full');
         
     } else {
@@ -353,8 +359,9 @@ window.changeNav = function(btn) {
         headerSticky.classList.add('sticky'); 
         
         // Ensure grid is set for content views
+        // !!! gap-2 နှင့် px-0 ဖြင့် 5 column ကို ပိုမိုလှပစေရန်
         moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
-        moviesContainer.classList.add('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
+        moviesContainer.classList.add('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-2', 'justify-items-center', 'px-0');
     }
 
     // Load Content
@@ -391,6 +398,10 @@ window.changeNav = function(btn) {
 window.showCategory = function(category, clickedButton) {
     const moviesContainer = document.getElementById('movies');
     
+    // Ensure the container is set to grid mode (Important for all content views)
+    moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
+    moviesContainer.classList.add('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-2', 'justify-items-center', 'px-0');
+    
     // Clear the container first
     moviesContainer.innerHTML = ''; 
     
@@ -425,6 +436,11 @@ window.showCategory = function(category, clickedButton) {
 
 function displayTrending() {
     const moviesContainer = document.getElementById('movies');
+    
+    // !!! FIX: Ensure the container is set to grid mode for Trending view
+    moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
+    moviesContainer.classList.add('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-2', 'justify-items-center', 'px-0');
+    
     moviesContainer.innerHTML = '';
     
     const t = translations[currentSettings.language] || translations.english;
@@ -450,6 +466,11 @@ function displayTrending() {
 
 function displayFavorites() {
     const moviesContainer = document.getElementById('movies');
+    
+    // !!! FIX: Ensure the container is set to grid mode for Favorites view
+    moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
+    moviesContainer.classList.add('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-2', 'justify-items-center', 'px-0');
+    
     moviesContainer.innerHTML = '';
     
     const t = translations[currentSettings.language] || translations.english;
@@ -488,6 +509,7 @@ function displayProfileSettings() {
     const bgColorClass = currentSettings.theme === 'light' ? 'bg-white text-gray-900 border-gray-200' : 'bg-midbg text-white border-gray-700';
     const inputBgClass = currentSettings.theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white';
     const idBgClass = currentSettings.theme === 'light' ? 'bg-gray-200 text-gray-700' : 'bg-gray-800 text-gray-400';
+    // !!! Blue for links/accents in profile settings
     const linkColorClass = currentSettings.theme === 'light' ? 'text-blue-600 hover:text-blue-800' : 'text-primary hover:text-white';
 
 
@@ -575,19 +597,20 @@ function createMovieCard(movie) {
     const bgColorClass = currentSettings.theme === 'light' ? 'bg-white' : 'bg-gray-800';
     
     // w-full, aspect-square (1:1) and small text size for 5 columns
-    card.className = `movie-card-bg ${bgColorClass} rounded-lg shadow-md hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer **w-full** flex flex-col`;
+    // Card Hover: hover:shadow-primary/50 ကို အပြာရောင်အဖြစ် သုံးထားသည်
+    card.className = `movie-card-bg ${bgColorClass} rounded-lg shadow-md hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer w-full flex flex-col`;
     card.setAttribute('data-movie-id', movieId);
 
     card.innerHTML = `
-        <div class="relative w-full **aspect-square**">
-            <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a1a1a/cccccc?text=WY'" class="w-full h-full **object-cover** rounded-t-lg **absolute**">
-            ${isFav ? `<div class="absolute top-1 left-1 text-red-500 z-10">
+        <div class="relative w-full aspect-square">
+            <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/100x100/1a1a1a/cccccc?text=WY'" class="w-full h-full object-cover rounded-t-lg absolute">
+            ${isFav ? `<div class="absolute top-1 left-1 text-primary z-10">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             </div>` : ''}
         </div>
         <div class="p-1 flex flex-col justify-between flex-grow">
-            <p class="**text-[0.6rem]** font-medium leading-tight mb-1 truncate">${movie.title}</p> 
-            <button onclick="window.playVideo(event, '${movieId}')" class="mt-1 **text-[0.6rem]** font-semibold text-primary hover:text-black hover:bg-primary transition duration-200 py-1 px-1 rounded-full border border-primary">
+            <p class="text-[0.6rem] font-medium leading-tight mb-1 truncate">${movie.title}</p> 
+            <button onclick="window.playVideo(event, '${movieId}')" class="mt-1 text-[0.6rem] font-semibold text-primary hover:text-black hover:bg-primary transition duration-200 py-1 px-1 rounded-full border border-primary">
                 ${t.nowPlaying}
             </button>
         </div>
@@ -629,6 +652,8 @@ window.playVideo = function(event, movieId) {
         showCustomAlert("Error", "ရုပ်ရှင်ရှာမတွေ့ပါ။");
     }
 }
+
+// ... (Other helper functions remain the same) ...
 
 /**
  * Toggles fullscreen mode for the video player container.
