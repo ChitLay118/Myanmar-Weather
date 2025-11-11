@@ -338,8 +338,8 @@ window.changeNav = function(btn) {
     // Reset grid/flex properties before content load
     moviesContainer.innerHTML = '';
     moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
-    // Ensure grid is set for non-profile views
-    moviesContainer.classList.add('grid', 'grid-cols-5', 'gap-4', 'justify-items-center');
+    // Ensure grid is set for non-profile views (grid-cols-3 md:grid-cols-5)
+    moviesContainer.classList.add('grid', 'grid-cols-3', 'md:grid-cols-5', 'gap-4', 'justify-items-center');
 
     
     // Header/Player visibility
@@ -350,7 +350,7 @@ window.changeNav = function(btn) {
         headerSticky.classList.remove('sticky'); 
         
         // Profile view အတွက် moviesContainer ကို flex-col အဖြစ် ပြန်ပြောင်း
-        moviesContainer.classList.remove('grid', 'grid-cols-5', 'gap-4', 'justify-items-center');
+        moviesContainer.classList.remove('grid', 'grid-cols-3', 'md:grid-cols-5', 'gap-4', 'justify-items-center');
         moviesContainer.classList.add('flex', 'flex-col', 'w-full');
         
     } else {
@@ -573,14 +573,15 @@ function createMovieCard(movie) {
     const card = document.createElement('div');
     const bgColorClass = currentSettings.theme === 'light' ? 'bg-white' : 'bg-gray-800';
     
-    // w-full ကို ပြောင်းလဲထားသည် (Column ၅ ခုတွင် နေရာအပြည့်ယူရန်)
+    // w-full ကို ပြောင်းလဲထားသည် (Column ၃/၅ ခုတွင် နေရာအပြည့်ယူရန်)
     card.className = `movie-card-bg ${bgColorClass} rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer **w-full** flex flex-col`;
     card.setAttribute('data-movie-id', movieId);
 
+    // ပုံသေအမြင့် (165px) ကိုဖယ်ရှားပြီး aspect-ratio ကိုသုံးသည်။
     card.innerHTML = `
-        <div class="relative w-full h-auto">
-            <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/110x165/1a1a1a/cccccc?text=Error'" class="w-full h-full object-cover rounded-t-xl" style="height: 165px;">
-            ${isFav ? `<div class="absolute top-2 left-2 text-red-500">
+        <div class="relative w-full **aspect-[3/4]**">
+            <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/110x165/1a1a1a/cccccc?text=Error'" class="w-full h-full **object-cover** rounded-t-xl **absolute**">
+            ${isFav ? `<div class="absolute top-2 left-2 text-red-500 z-10">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
             </div>` : ''}
         </div>
