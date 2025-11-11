@@ -2,256 +2,191 @@
   "videos": {
     "action": [
       {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://i.ibb.co/3mm1SwVj/photo-2025-09-26-02-06-35.jpg",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
+        "title": "Fast & Furious 9",
+        "thumb": "https://images.unsplash.com/photo-1549487737-124b898239e2?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/aT582t0j91c?autoplay=1",
+        "id": "action-0"
       },
       {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://i.ytimg.com/vi/nq2__GFFyhw/hqdefault.jpg?sqp=-oaymwEnCOADEI4CSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLAyVMbRMGIVq_08tjMtFUlzgftBow",
-        "src": "https://www.youtube.com/embed/nq2__GFFyhw?list=RDnq2__GFFyhw"
+        "title": "Mission Impossible 7",
+        "thumb": "https://images.unsplash.com/photo-1534438327276-88898952467d?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/akL0GzB6tHk?autoplay=1",
+        "id": "action-1"
       },
       {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
+        "title": "Extraction 2",
+        "thumb": "https://images.unsplash.com/photo-1620800366657-3f3c83b8b0e7?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/Y2k_eQ-Q_c0?autoplay=1",
+        "id": "action-2"
       },
       {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
+        "title": "John Wick 4",
+        "thumb": "https://images.unsplash.com/photo-1534438327276-88898952467d?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/qEVQ2t7y4wQ?autoplay=1",
+        "id": "action-3"
       },
       {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
-      },
-      {
-        "title": "YouTube Action Trailer (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
-        "src": "https://www.youtube.com/embed/F2P2cDI5i1M?si=IB-JBfCVbFQrxC35"
-      },
-      {
-        "title": "MEGA Action Movie (Embed)",
-        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
-        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
+        "title": "Equalizer 3",
+        "thumb": "https://images.unsplash.com/photo-1549487737-124b898239e2?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/c-X86E20M0c?autoplay=1",
+        "id": "action-4"
       }
-      
     ],
     "drama": [
       {
-        "title": "YouTube Drama Clips (Embed)",
-        "thumb": "https://placehold.co/110x165/1e40af/ffffff?text=YouTube+Drama",
-        "src": "https://www.youtube.com/embed/S_8nB1c30Qc"
+        "title": "The Shawshank Redemption",
+        "thumb": "https://images.unsplash.com/photo-1511216503799-a681c2f1f0a2?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/6hB3S9bIztk?autoplay=1",
+        "id": "drama-0"
       },
       {
-        "title": "MEGA Drama Series (Embed)",
-        "thumb": "https://placehold.co/110x165/1e40af/ffffff?text=MEGA+Drama",
-        "src": "https://mega.nz/embed/12345678#90ABCDEFGH"
+        "title": "Forrest Gump",
+        "thumb": "https://images.unsplash.com/photo-1511216503799-a681c2f1f0a2?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/bT2W-f2j37E?autoplay=1",
+        "id": "drama-1"
+      },
+      {
+        "title": "Green Mile",
+        "thumb": "https://images.unsplash.com/photo-1511216503799-a681c2f1f0a2?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/Ki4F5tN4D6U?autoplay=1",
+        "id": "drama-2"
       }
     ],
     "cartoon": [
       {
-        "title": "YouTube Cartoon Show (Embed)",
-        "thumb": "https://placehold.co/110x165/059669/ffffff?text=YouTube+Cartoon",
-        "src": "https://www.youtube.com/embed/YE7VzlLTP-4"
+        "title": "Toy Story 4",
+        "thumb": "https://images.unsplash.com/photo-1544865184-7f6c31f4e1c2?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/wmiIUN-7e8A?autoplay=1",
+        "id": "cartoon-0"
+      },
+      {
+        "title": "Frozen 2",
+        "thumb": "https://images.unsplash.com/photo-1544865184-7f6c31f4e1c2?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/eSg0sXwN06Y?autoplay=1",
+        "id": "cartoon-1"
       }
     ],
     "romance": [
-      
+      {
+        "title": "La La Land",
+        "thumb": "https://images.unsplash.com/photo-1502685104226-ee323758268c?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/0x-f5-yXgN8?autoplay=1",
+        "id": "romance-0"
+      }
     ],
     "myanmar": [
-      
+      {
+        "title": "Moe Htin",
+        "thumb": "https://images.unsplash.com/photo-1520330663674-0f2c4172f3a6?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/sU2R7rSj1Sg?autoplay=1",
+        "id": "myanmar-0"
+      },
+      {
+        "title": "Shwe La Min",
+        "thumb": "https://images.unsplash.com/photo-1520330663674-0f2c4172f3a6?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/5T32x60i1kM?autoplay=1",
+        "id": "myanmar-1"
+      }
+    ],
+    "trending": [
+      {
+        "title": "TOP 1: The Creator",
+        "thumb": "https://images.unsplash.com/photo-1549487737-124b898239e2?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/sR8Yv65Ff5Y?autoplay=1",
+        "id": "trending-0"
+      },
+      {
+        "title": "TOP 2: The Meg 2",
+        "thumb": "https://images.unsplash.com/photo-1534438327276-88898952467d?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/vEwR6zP92-k?autoplay=1",
+        "id": "trending-1"
+      },
+      {
+        "title": "TOP 3: Oppenheimer",
+        "thumb": "https://images.unsplash.com/photo-1620800366657-3f3c83b8b0e7?w=100&h=100&auto=format&fit=crop&q=80",
+        "src": "https://www.youtube.com/embed/bLh35g54b6Y?autoplay=1",
+        "id": "trending-2"
+      }
     ]
   },
   "translations": {
     "myanmar": {
       "title": "WY ရုပ်ရှင်သေတ္တာ",
-      "selectMovie": "ရုပ်ရှင်ကို ရွေးချယ်ပါ",
-      "nowPlaying": "ယခုဖွင့်နေသည်",
-      "noFavorites": "မှတ်သားထားသော ဗီဒီယိုများ မရှိသေးပါ",
-      "noContent": "ဤကဏ္ဍတွင် အကြောင်းအရာများ မရှိသေးပါ။",
-      "navHome": "မူလစာမျက်နှာ",
-      "navTrending": "ခေတ်စားနေသည်",
-      "navFavorites": "အနှစ်သက်ဆုံး",
-      "navProfile": "အသုံးပြုသူ",
-      "settingsTitle": "အသုံးပြုသူ ဆက်တင်များ",
-      "settingsName": "နာမည်",
-      "settingsEmail": "အီးမေးလ်",
-      "settingsTheme": "အလင်း/အမှောင် (Theme)",
-      "themeDark": "အမှောင်",
-      "themeLight": "အလင်း",
-      "settingsLanguage": "ဘာသာစကား",
-      "langMyanmar": "မြန်မာ",
-      "langEnglish": "အင်္ဂလိပ်",
-      "saveSettings": "သိမ်းမည်",
-      "favoritesHeader": "အနှစ်သက်ဆုံးများ",
-      "trendingHeader": "ခေတ်စားနေသော ဗီဒီယို (နောက်ဆုံး ၁၀ ပုဒ်)",
       "action": "လှုပ်ရှားမှု",
       "drama": "ဒရာမာ",
       "cartoon": "ကာတွန်း",
       "romance": "အချစ်",
       "myanmar": "မြန်မာ",
-      "selectCategory": "ရွေးချယ်ထားသော ကဏ္ဍ",
-      "selectMovieForFavorite": "Favorite မှတ်ရန် ဗီဒီယိုတစ်ခုကို အရင်ဖွင့်ပါ",
-      "profileInfoTitle": "အသုံးပြုသူ အချက်အလက်",
-      "appearanceTitle": "အသွင်အပြင် ရွေးချယ်မှုများ",
-      "settingsSavedSuccess": "အချက်အလက်များကို အောင်မြင်စွာ သိမ်းဆည်းလိုက်ပါပြီ။",
-      "settingsSaveError": "အချက်အလက်များ သိမ်းဆည်းရာတွင် အမှားဖြစ်ပွားပါသည်။",
-      "adultContent": "🔞 လူကြီးကားများကြည့်ရန် (18+)",
+      "navHome": "မူလစာမျက်နှာ",
+      "navTrending": "ခေတ်စားနေသည်",
+      "navFavorites": "အနှစ်သက်ဆုံး",
+      "navProfile": "အသုံးပြုသူ",
+      "selectMovie": "ရုပ်ရှင်ကို ရွေးချယ်ပါ",
+      "nowPlaying": "ကြည့်နေသည်",
+      "favoritesHeader": "အနှစ်သက်ဆုံး ရုပ်ရှင်များ",
+      "trendingHeader": "ခေတ်စားနေသော ရုပ်ရှင်များ",
+      "noContent": "ဤကဏ္ဍတွင် ရုပ်ရှင်များ မရှိပါ",
+      "noFavorites": "အနှစ်သက်ဆုံးများ မရှိသေးပါ",
+      "selectCategory": "ကဏ္ဍ",
+      "settingsTitle": "အသုံးပြုသူ ဆက်တင်များ",
+      "settingsName": "အမည်",
+      "settingsEmail": "အီးမေးလ်",
+      "saveSettings": "သိမ်းဆည်းမည်",
+      "settingsSavedSuccess": "ဆက်တင်များ သိမ်းဆည်းပြီးပါပြီ။",
+      "settingsSaveError": "ဆက်တင် သိမ်းဆည်းရာတွင် အမှားဖြစ်ပါသည်။",
+      "appearanceTitle": "အသွင်အပြင်",
+      "settingsTheme": "အပြင်အဆင်",
+      "themeDark": "အမှောင်",
+      "themeLight": "အလင်း",
+      "settingsLanguage": "ဘာသာစကား",
+      "langMyanmar": "မြန်မာ",
+      "langEnglish": "အင်္ဂလိပ်",
+      "profileInfoTitle": "ကိုယ်ရေးအချက်အလက်",
       "contactTitle": "ဆက်သွယ်ရန်",
       "copyText": "ကူးယူရန်",
-      "copySuccess": "ကို အောင်မြင်စွာ ကူးယူလိုက်ပါပြီ။",
-      "addedToFav": "ကို အနှစ်သက်ဆုံး စာရင်းထဲ ထည့်လိုက်ပါပြီ",
-      "removedFromFav": "ကို အနှစ်သက်ဆုံးမှ ဖယ်ရှားလိုက်ပါပြီ"
+      "copySuccess": "ကို ကူးယူပြီးပါပြီ",
+      "adultContent": "🔞 အထူးကဏ္ဍ (၁၈+)",
+      "selectMovieForFavorite": "အနှစ်သက်ဆုံးထည့်ရန် ရုပ်ရှင်တစ်ခုကို ဦးစွာရွေးချယ်ပါ။",
+      "addedToFav": "ကို အနှစ်သက်ဆုံးများထဲသို့ ထည့်လိုက်ပါပြီ။",
+      "removedFromFav": "ကို အနှစ်သက်ဆုံးများထဲမှ ဖယ်ထုတ်လိုက်ပါပြီ။"
     },
     "english": {
       "title": "WY MovieBox",
-      "selectMovie": "Select a movie below.",
-      "nowPlaying": "Now Playing",
-      "noFavorites": "No favorites added yet.",
-      "noContent": "No content found in this category.",
-      "navHome": "Home",
-      "navTrending": "Trending",
-      "navFavorites": "Favorites",
-      "navProfile": "Profile",
-      "settingsTitle": "User Settings",
-      "settingsName": "Name",
-      "settingsEmail": "Email",
-      "settingsTheme": "Theme (Dark/Light)",
-      "themeDark": "Dark",
-      "themeLight": "Light",
-      "settingsLanguage": "Language",
-      "langMyanmar": "Myanmar",
-      "langEnglish": "English",
-      "saveSettings": "Save",
-      "favoritesHeader": "Favorites",
-      "trendingHeader": "Trending Videos (Last 10)",
       "action": "Action",
       "drama": "Drama",
       "cartoon": "Cartoon",
       "romance": "Romance",
       "myanmar": "Myanmar",
-      "selectCategory": "Selected Category",
-      "selectMovieForFavorite": "Please play a movie first to add to favorites.",
+      "navHome": "Home",
+      "navTrending": "Trending",
+      "navFavorites": "Favorites",
+      "navProfile": "Profile",
+      "selectMovie": "Select a Movie",
+      "nowPlaying": "Playing",
+      "favoritesHeader": "Favorite Movies",
+      "trendingHeader": "Trending Movies",
+      "noContent": "No movies in this category",
+      "noFavorites": "No favorites yet",
+      "selectCategory": "Category",
+      "settingsTitle": "User Settings",
+      "settingsName": "Name",
+      "settingsEmail": "Email",
+      "saveSettings": "Save",
+      "settingsSavedSuccess": "Settings saved successfully.",
+      "settingsSaveError": "Error saving settings.",
+      "appearanceTitle": "Appearance",
+      "settingsTheme": "Theme",
+      "themeDark": "Dark",
+      "themeLight": "Light",
+      "settingsLanguage": "Language",
+      "langMyanmar": "Myanmar",
+      "langEnglish": "English",
       "profileInfoTitle": "Profile Information",
-      "appearanceTitle": "Appearance Options",
-      "settingsSavedSuccess": "Profile information saved successfully.",
-      "settingsSaveError": "An error occurred while saving profile information.",
-      "adultContent": "🔞 Adult Content (18+)",
-      "contactTitle": "Contact",
+      "contactTitle": "Contact Info",
       "copyText": "Copy",
-      "copySuccess": "copied successfully.",
+      "copySuccess": "copied to clipboard",
+      "adultContent": "🔞 Special Content (18+)",
+      "selectMovieForFavorite": "Please select a movie to add to favorites.",
       "addedToFav": "added to favorites.",
       "removedFromFav": "removed from favorites."
     }
