@@ -5,55 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title data-i18n="title">WY MovieBox</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="module">
-        // [Existing Firebase/App Initialization Script is here... (unchanged)]
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, getDocs, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        let firebaseConfig = {};
-        try {
-            firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
-        } catch (e) {
-            console.error("Error parsing __firebase_config:", e);
-        }
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+    
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js"></script>
 
-        if (Object.keys(firebaseConfig).length > 0) {
-            const app = initializeApp(firebaseConfig);
-            window.db = getFirestore(app);
-            window.auth = getAuth(app);
-
-            onAuthStateChanged(window.auth, async (user) => {
-                if (user) {
-                    console.log("Authenticated user:", user.uid);
-                } else {
-                    console.log("No user signed in. Attempting sign-in...");
-                    try {
-                        if (initialAuthToken) {
-                            await signInWithCustomToken(window.auth, initialAuthToken);
-                        } else {
-                            await signInAnonymously(window.auth);
-                        }
-                        window.initializeApp();
-                    } catch (error) {
-                        console.error("Firebase Sign-in Error:", error);
-                    }
-                }
-            });
-            
-            window.firestore = {
-                doc, getDoc, addDoc, setDoc, updateDoc, deleteDoc, onSnapshot, collection, query, where, getDocs, 
-                getPublicCollectionRef: (collectionName) => collection(window.db, `artifacts/${appId}/public/data/${collectionName}`)
+    <script>
+        // Global utility function for Firebase components access
+        function getFirebaseComponents() {
+            if (typeof firebase === 'undefined' || !firebase.initializeApp) {
+                console.warn("Firebase SDK is not loaded globally.");
+                return null;
+            }
+            return {
+                app: firebase.app,
+                auth: firebase.auth,
+                firestore: firebase.firestore
             };
-
-        } else {
-             console.warn("Firebase configuration is missing. Firestore operations will not work.");
-             window.initializeApp();
         }
     </script>
-    <link rel="stylesheet" href="style.css?v=2.4"> 
+    
+    <link rel="stylesheet" href="style.css?v=2.6"> 
 </head>
 <body id="body-root" class="bg-darkbg text-white min-h-screen pb-20 transition-colors duration-300">
 
@@ -87,7 +59,7 @@
             </button>
         </div>
         
-        <div class="max-w-3xl mx-auto flex justify-between items-center **mt-0** mb-6 px-2 w-full">
+        <div class="max-w-3xl mx-auto flex justify-between items-center mt-0 mb-6 px-2 w-full">
             <p id="current-movie-title" class="text-xl font-semibold text-white/90" data-i18n="selectMovie">ရုပ်ရှင်ကို ရွေးချယ်ပါ</p>
             
             <button id="favorite-btn" onclick="toggleFavorite()" class="p-3 rounded-full transition duration-300 shadow-lg text-gray-500 hover:text-red-500">
@@ -138,7 +110,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=2.4"></script>
+    <script src="script.js?v=2.6"></script>
 
 </body>
 </html>
