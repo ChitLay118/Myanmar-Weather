@@ -56,11 +56,11 @@
              window.initializeApp();
         }
     </script>
-    <link rel="stylesheet" href="style.css?v=1.3"> 
+    <link rel="stylesheet" href="style.css?v=1.4"> 
 </head>
-<body id="body-root" class="bg-darkbg text-white min-h-screen pb-24 transition-colors duration-300">
+<body id="body-root" class="bg-darkbg text-white min-h-screen **pb-20** transition-colors duration-300">
 
-    <header id="header-sticky" class="sticky top-0 z-30 bg-darkbg p-4 border-b border-gray-700 shadow-xl">
+    <header id="header-sticky" class="sticky top-0 z-40 bg-darkbg p-4 border-b border-gray-700 shadow-xl">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <h1 id="main-title" class="text-3xl font-extrabold text-primary" data-i18n="title">WY MovieBox</h1>
         </div>
@@ -76,7 +76,7 @@
 
     <main id="main-content" class="max-w-full mx-auto p-4 min-h-[calc(100vh-160px)] flex flex-col">
 
-        <div id="player-container" class="w-full max-w-3xl mx-auto rounded-xl overflow-hidden relative shadow-2xl shadow-primary/30 bg-black **sticky top-[6rem] z-20** mb-6 aspect-video">
+        <div id="player-container" class="w-full max-w-3xl mx-auto rounded-xl overflow-hidden relative shadow-2xl shadow-primary/30 bg-black **z-10** mb-6 aspect-video">
             
             <iframe id="iframePlayer" class="w-full h-full absolute top-0 left-0" 
                         src="https://www.youtube.com/embed/YE7VzlLTP-4?autoplay=0" 
@@ -85,12 +85,12 @@
                         allowfullscreen>
             </iframe>
 
-            <button onclick="toggleFullScreen()" class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 p-2 rounded-full text-white transition duration-200 z-10">
+            <button onclick="toggleFullScreen()" class="absolute top-4 right-4 bg-black/50 hover:bg-black/70 p-2 rounded-full text-white transition duration-200 z-20">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
             </button>
         </div>
 
-        <div class="max-w-3xl mx-auto flex justify-between items-center mb-6 px-2">
+        <div class="max-w-3xl mx-auto flex justify-between items-center mb-6 px-2 w-full">
             <p id="current-movie-title" class="text-xl font-semibold text-white/90" data-i18n="selectMovie">ရုပ်ရှင်ကို ရွေးချယ်ပါ</p>
             
             <button id="favorite-btn" onclick="toggleFavorite()" class="p-3 rounded-full transition duration-300 shadow-lg text-gray-500 hover:text-red-500">
@@ -140,7 +140,7 @@
             </button>
 
             <button class="nav-btn flex flex-col items-center justify-center space-y-1 p-2 text-gray-400 hover:text-white transition-colors duration-200" data-nav="profile" onclick="changeNav(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 4 0 0 0-4-4H9a4 4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 <span class="text-xs" data-i18n="navProfile">အသုံးပြုသူ</span>
             </button>
         </div>
@@ -152,7 +152,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=1.3"></script>
+    <script src="script.js?v=1.4"></script>
 
 </body>
 </html>
