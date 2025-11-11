@@ -1,10 +1,7 @@
 /**
- * WY MovieBox - Main JavaScript Logic (v1.5)
- * * Key features:
- * - Firebase Authentication/Firestore setup (using global window.db/window.auth)
- * - Settings (Theme/Language) and Favorites management via localStorage.
- * - Proper UI rendering for Home, Trending, Favorites, and Profile views.
- * - Movie Card Layout adjusted for Mobile 5-column grid and aspect-square thumbnails.
+ * WY MovieBox - Main JavaScript Logic (v1.6)
+ * * Key changes:
+ * - Movie Card Layout adjusted for Mobile 5-column grid and aspect-square thumbnails (text-[0.6rem]).
  */
 
 // Global state variables
@@ -38,6 +35,7 @@ const defaultSettings = {
  */
 async function loadDataFromJSON() {
     try {
+        // Assume videos_photos.json contains both 'videos' and 'translations' keys
         const response = await fetch('videos_photos.json');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -339,16 +337,15 @@ window.changeNav = function(btn) {
 
     // Reset grid/flex properties before content load
     moviesContainer.innerHTML = '';
-    moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
-    // Ensure grid is set for non-profile views (grid-cols-5 md:grid-cols-5)
-    moviesContainer.classList.add('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
-
+    
     
     // Header/Player visibility
     if (nav === 'profile') {
         menuBar.classList.add('hidden');
         playerContainer.classList.add('hidden');
         if (currentTitleBar) currentTitleBar.classList.add('hidden'); 
+        
+        // Remove sticky from header in profile view
         headerSticky.classList.remove('sticky'); 
         
         // Profile view အတွက် moviesContainer ကို flex-col အဖြစ် ပြန်ပြောင်း
@@ -359,7 +356,13 @@ window.changeNav = function(btn) {
         menuBar.classList.remove('hidden');
         playerContainer.classList.remove('hidden');
         if (currentTitleBar) currentTitleBar.classList.remove('hidden'); 
-        headerSticky.classList.add('sticky');
+        
+        // Add sticky back to header
+        headerSticky.classList.add('sticky'); 
+        
+        // Ensure grid is set for content views
+        moviesContainer.classList.remove('flex', 'flex-col', 'w-full');
+        moviesContainer.classList.add('grid', 'grid-cols-5', 'md:grid-cols-5', 'gap-1', 'justify-items-center', 'px-1');
     }
 
     // Load Content
@@ -395,7 +398,9 @@ window.changeNav = function(btn) {
  */
 window.showCategory = function(category, clickedButton) {
     const moviesContainer = document.getElementById('movies');
-    moviesContainer.innerHTML = '';
+    
+    // Clear the container first
+    moviesContainer.innerHTML = ''; 
     
     const t = translations[currentSettings.language] || translations.english;
     const isLight = currentSettings.theme === 'light';
@@ -412,10 +417,12 @@ window.showCategory = function(category, clickedButton) {
     }
 
     const categoryVideos = videos[category] || [];
-    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.selectCategory}: ${t[category]}</h2>`; // col-span-5 added
+    
+    // Header for the section spanning all 5 columns
+    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.selectCategory}: ${t[category]}</h2>`; 
 
     if (categoryVideos.length === 0) {
-        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noContent}</p>`; // col-span-5 added
+        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noContent}</p>`; 
         return;
     }
 
@@ -435,12 +442,12 @@ function displayTrending() {
         allMovies = allMovies.concat(videos[category]);
     }
 
-    const trendingMovies = allMovies.slice(-10); 
+    const trendingMovies = allMovies.slice(-10); // Example: show last 10 movies as "trending"
     
-    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.trendingHeader}</h2>`; // col-span-5 added
+    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.trendingHeader}</h2>`; 
     
     if (trendingMovies.length === 0) {
-        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noContent}</p>`; // col-span-5 added
+        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noContent}</p>`; 
         return;
     }
     
@@ -455,10 +462,10 @@ function displayFavorites() {
     
     const t = translations[currentSettings.language] || translations.english;
 
-    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.favoritesHeader}</h2>`; // col-span-5 added
+    moviesContainer.innerHTML = `<h2 class="text-xl font-bold text-center w-full mb-4 text-white/80 col-span-5">${t.favoritesHeader}</h2>`; 
 
     if (favorites.length === 0) {
-        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noFavorites}</p>`; // col-span-5 added
+        moviesContainer.innerHTML += `<p class="text-gray-500 mt-5 text-center text-lg w-full col-span-5">${t.noFavorites}</p>`; 
         return;
     }
 
@@ -587,8 +594,8 @@ function createMovieCard(movie) {
             </div>` : ''}
         </div>
         <div class="p-1 flex flex-col justify-between flex-grow">
-            <p class="text-[0.6rem] font-medium leading-tight mb-1 truncate">${movie.title}</p> 
-            <button onclick="window.playVideo(event, '${movieId}')" class="mt-1 text-[0.6rem] font-semibold text-primary hover:text-black hover:bg-primary transition duration-200 py-1 px-1 rounded-full border border-primary">
+            <p class="**text-[0.6rem]** font-medium leading-tight mb-1 truncate">${movie.title}</p> 
+            <button onclick="window.playVideo(event, '${movieId}')" class="mt-1 **text-[0.6rem]** font-semibold text-primary hover:text-black hover:bg-primary transition duration-200 py-1 px-1 rounded-full border border-primary">
                 ${t.nowPlaying}
             </button>
         </div>
