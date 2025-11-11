@@ -475,9 +475,10 @@ function displayProfileSettings() {
     const linkColorClass = currentSettings.theme === 'light' ? 'text-blue-600 hover:text-blue-800' : 'text-primary hover:text-white';
 
 
+    // ** ပြင်ဆင်ချက်: max-w-5xl, h-full, p-8, overflow-y-auto များကို ထည့်လိုက်ပါသည်။ **
     moviesContainer.innerHTML = `
-        <div class="w-full max-w-md mx-auto p-6 rounded-xl shadow-2xl border ${bgColorClass}">
-            <h2 class="text-2xl font-bold mb-6 text-primary text-center">${t.settingsTitle}</h2>
+        <div class="w-full max-w-5xl mx-auto p-8 h-full rounded-xl shadow-2xl border ${bgColorClass}">
+            <h2 class="text-3xl font-bold mb-8 text-primary text-center">${t.settingsTitle}</h2>
             
             <form id="profile-info-form" onsubmit="event.preventDefault(); saveProfileInfo();" class="mb-8 p-4 rounded-lg border border-primary/50">
                 <p class="text-lg font-semibold mb-3" data-i18n="profileInfoTitle"></p>
