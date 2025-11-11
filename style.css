@@ -1,36 +1,34 @@
-/* This file contains the custom CSS for the WY MovieBox application.
-    It primarily sets up the custom colors and fixes display issues for various browsers.
-*/
+/* style.css (v1.6) */
 
-/* Custom Tailwind Configuration (Primary color is a warm yellow/amber) */
-:root {
-    --color-primary: #f59e0b; /* Amber 500 */
+/* Scrollbar ဖျောက်ထားခြင်း (optional but good for mobile aesthetics) */
+.overflow-x-auto::-webkit-scrollbar,
+.overflow-y-scroll::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    display: none;
 }
-/* Define custom classes to be used in script.js logic */
-.text-primary { color: var(--color-primary); }
-.bg-primary { background-color: var(--color-primary); }
-
-/* Custom Background Colors for Dark Mode */
-.bg-darkbg { background-color: #1a1a1a; } /* Darker charcoal for body */
-.bg-midbg { background-color: #262626; } /* Slightly lighter charcoal for cards/navbar */
-
-/* General Styling */
-body { 
-    font-family: 'Inter', sans-serif; 
-    transition: background-color 0.3s, color 0.3s; 
+.overflow-x-auto,
+.overflow-y-scroll,
+body {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
-/* Fix for Fullscreen video background */
-#player-container:-webkit-full-screen { background-color: black; }
-#player-container:-moz-full-screen { background-color: black; }
-#player-container:-ms-full-screen { background-color: black; }
-#player-container:fullscreen { background-color: black; }
-
-/* Hide scrollbar for category menu (on webkit browsers) */
-#menu-bar { 
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+/* Base Styles (Tailwind handles most) */
+.bg-darkbg {
+    background-color: #121212;
 }
-#menu-bar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+
+.bg-midbg {
+    background-color: #1e1e1e;
+}
+
+.text-primary {
+    color: #FF5722; /* Orange-Red for emphasis */
+}
+
+/* Movie Card Styles: Ensure text is very small for 5 columns */
+.movie-card-bg {
+    /* Tailwind's p-1, text-[0.6rem] handle small size. */
+    /* This style ensures smooth transition on hover */
+    will-change: transform; 
 }
