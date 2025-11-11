@@ -6,7 +6,7 @@
     <title data-i18n="title">WY MovieBox</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <link rel="stylesheet" href="style.css?v=3.1"> 
+    <link rel="stylesheet" href="style.css?v=3.2"> 
 </head>
 <body id="body-root" class="bg-darkbg text-white min-h-screen pb-20 transition-colors duration-300">
 
@@ -55,18 +55,6 @@
             </div>
         </section>
         
-        <div id="adult-content-modal" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" onclick="closeAdultContentModal(false)">
-            <div class="bg-red-800 p-6 rounded-lg shadow-2xl max-w-sm w-full text-white border border-red-500" onclick="event.stopPropagation()">
-                <h3 class="text-2xl font-bold mb-3">⚠️ 18+ Adult Content</h3>
-                <p class="text-sm font-semibold mb-2" id="adult-movie-title"></p>
-                <p id="adult-warning-text" class="mb-6 text-sm"></p>
-                <div class="flex flex-col space-y-2">
-                    <button id="adult-play-btn" class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 rounded transition duration-200" data-i18n="confirmAdult">I am 18 or older</button>
-                    <button onclick="closeAdultContentModal(false)" class="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 rounded transition duration-200" data-i18n="cancel">Cancel</button>
-                </div>
-            </div>
-        </div>
-
         <div id="custom-alert-modal" class="hidden fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4" onclick="closeCustomAlert()">
             <div class="bg-midbg p-6 rounded-lg shadow-2xl max-w-sm w-full text-white" onclick="event.stopPropagation()">
                 <h3 class="text-xl font-bold mb-3 text-primary" id="alert-title"></h3>
@@ -76,6 +64,16 @@
         </div>
     </main>
 
+    <div id="adult-webview-modal" class="hidden fixed inset-0 z-[60] flex flex-col bg-darkbg">
+        <header class="w-full bg-midbg border-b border-gray-700 p-4 flex justify-between items-center sticky top-0 z-10">
+            <h2 class="text-2xl font-bold text-primary">WY MovieBox</h2>
+            <button onclick="closeAdultWebview()" class="bg-primary text-black font-semibold py-2 px-4 rounded-lg hover:bg-opacity-90 transition duration-200">
+                <span data-i18n="navHome">မူလစာမျက်နှာ</span>
+            </button>
+        </header>
+        <iframe id="adultWebviewIframe" src="about:blank" frameborder="0" class="flex-grow w-full"></iframe>
+    </div>
+    
     <nav id="nav-bar" class="fixed bottom-0 left-0 right-0 bg-midbg border-t border-gray-700 shadow-2xl shadow-black/80 z-50 pointer-events-none opacity-50 transition-opacity duration-300">
         <div class="max-w-xl mx-auto flex justify-around items-center h-16">
             
@@ -107,7 +105,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3.1"></script>
+    <script src="script.js?v=3.2"></script>
 
 </body>
 </html>
