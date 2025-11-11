@@ -1,0 +1,123 @@
+{
+  "videos": {
+    "action": [
+      {
+        "title": "YouTube Action Trailer (Embed)",
+        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=YouTube+Action",
+        "src": "https://www.youtube.com/embed/aqz-KE-bpKQ"
+      },
+      {
+        "title": "MEGA Action Movie (Embed)",
+        "thumb": "https://placehold.co/110x165/dc2626/ffffff?text=MEGA+Action",
+        "src": "https://mega.nz/embed/ABCDEFG#HIJKLMNOPQRSTUVWXYZ"
+      }
+    ],
+    "drama": [
+      {
+        "title": "YouTube Drama Clips (Embed)",
+        "thumb": "https://placehold.co/110x165/1e40af/ffffff?text=YouTube+Drama",
+        "src": "https://www.youtube.com/embed/S_8nB1c30Qc"
+      },
+      {
+        "title": "MEGA Drama Series (Embed)",
+        "thumb": "https://placehold.co/110x165/1e40af/ffffff?text=MEGA+Drama",
+        "src": "https://mega.nz/embed/12345678#90ABCDEFGH"
+      }
+    ],
+    "cartoon": [
+      {
+        "title": "YouTube Cartoon Show (Embed)",
+        "thumb": "https://placehold.co/110x165/059669/ffffff?text=YouTube+Cartoon",
+        "src": "https://www.youtube.com/embed/YE7VzlLTP-4"
+      }
+    ],
+    "romance": [
+      
+    ],
+    "myanmar": [
+      
+    ]
+  },
+  "translations": {
+    "myanmar": {
+      "title": "WY ရုပ်ရှင်သေတ္တာ",
+      "selectMovie": "ရုပ်ရှင်ကို ရွေးချယ်ပါ",
+      "nowPlaying": "ယခုဖွင့်နေသည်",
+      "noFavorites": "မှတ်သားထားသော ဗီဒီယိုများ မရှိသေးပါ",
+      "noContent": "ဤကဏ္ဍတွင် အကြောင်းအရာများ မရှိသေးပါ။",
+      "navHome": "မူလစာမျက်နှာ",
+      "navTrending": "ခေတ်စားနေသည်",
+      "navFavorites": "အနှစ်သက်ဆုံး",
+      "navProfile": "အသုံးပြုသူ",
+      "settingsTitle": "အသုံးပြုသူ ဆက်တင်များ",
+      "settingsName": "နာမည်",
+      "settingsEmail": "အီးမေးလ်",
+      "settingsTheme": "အလင်း/အမှောင် (Theme)",
+      "themeDark": "အမှောင်",
+      "themeLight": "အလင်း",
+      "settingsLanguage": "ဘာသာစကား",
+      "langMyanmar": "မြန်မာ",
+      "langEnglish": "အင်္ဂလိပ်",
+      "saveSettings": "သိမ်းမည်",
+      "favoritesHeader": "အနှစ်သက်ဆုံးများ",
+      "trendingHeader": "ခေတ်စားနေသော ဗီဒီယို (နောက်ဆုံး ၁၀ ပုဒ်)",
+      "action": "လှုပ်ရှားမှု",
+      "drama": "ဒရာမာ",
+      "cartoon": "ကာတွန်း",
+      "romance": "အချစ်",
+      "myanmar": "မြန်မာ",
+      "selectCategory": "ရွေးချယ်ထားသော ကဏ္ဍ",
+      "selectMovieForFavorite": "Favorite မှတ်ရန် ဗီဒီယိုတစ်ခုကို အရင်ဖွင့်ပါ",
+      "profileInfoTitle": "အသုံးပြုသူ အချက်အလက်",
+      "appearanceTitle": "အသွင်အပြင် ရွေးချယ်မှုများ",
+      "settingsSavedSuccess": "အချက်အလက်များကို အောင်မြင်စွာ သိမ်းဆည်းလိုက်ပါပြီ။",
+      "settingsSaveError": "အချက်အလက်များ သိမ်းဆည်းရာတွင် အမှားဖြစ်ပွားပါသည်။",
+      "adultContent": "🔞 လူကြီးကားများကြည့်ရန် (18+)",
+      "contactTitle": "ဆက်သွယ်ရန်",
+      "copyText": "ကူးယူရန်",
+      "copySuccess": "ကို အောင်မြင်စွာ ကူးယူလိုက်ပါပြီ။",
+      "addedToFav": "ကို အနှစ်သက်ဆုံး စာရင်းထဲ ထည့်လိုက်ပါပြီ",
+      "removedFromFav": "ကို အနှစ်သက်ဆုံးမှ ဖယ်ရှားလိုက်ပါပြီ"
+    },
+    "english": {
+      "title": "WY MovieBox",
+      "selectMovie": "Select a movie below.",
+      "nowPlaying": "Now Playing",
+      "noFavorites": "No favorites added yet.",
+      "noContent": "No content found in this category.",
+      "navHome": "Home",
+      "navTrending": "Trending",
+      "navFavorites": "Favorites",
+      "navProfile": "Profile",
+      "settingsTitle": "User Settings",
+      "settingsName": "Name",
+      "settingsEmail": "Email",
+      "settingsTheme": "Theme (Dark/Light)",
+      "themeDark": "Dark",
+      "themeLight": "Light",
+      "settingsLanguage": "Language",
+      "langMyanmar": "Myanmar",
+      "langEnglish": "English",
+      "saveSettings": "Save",
+      "favoritesHeader": "Favorites",
+      "trendingHeader": "Trending Videos (Last 10)",
+      "action": "Action",
+      "drama": "Drama",
+      "cartoon": "Cartoon",
+      "romance": "Romance",
+      "myanmar": "Myanmar",
+      "selectCategory": "Selected Category",
+      "selectMovieForFavorite": "Please play a movie first to add to favorites.",
+      "profileInfoTitle": "Profile Information",
+      "appearanceTitle": "Appearance Options",
+      "settingsSavedSuccess": "Profile information saved successfully.",
+      "settingsSaveError": "An error occurred while saving profile information.",
+      "adultContent": "🔞 Adult Content (18+)",
+      "contactTitle": "Contact",
+      "copyText": "Copy",
+      "copySuccess": "copied successfully.",
+      "addedToFav": "added to favorites.",
+      "removedFromFav": "removed from favorites."
+    }
+  }
+}
