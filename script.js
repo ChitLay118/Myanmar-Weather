@@ -1,8 +1,5 @@
 /**
  * WY MovieBox - Main JavaScript Logic
- * - MP4 support, 'type', and 'id' fields have been removed from JSON.
- * - 'id' is now dynamically generated (action-0, drama-1, etc.).
- * - Video playing relies solely on the iframe player.
  */
 
 // Global state variables
@@ -117,7 +114,7 @@ window.initializeApp = async function() {
 // -------------------------------------------------------------------------
 
 /**
- * Saves current user NAME and EMAIL settings to localStorage. (UPDATED)
+ * Saves current user NAME and EMAIL settings to localStorage.
  */
 window.saveProfileInfo = function() {
     const t = translations[currentSettings.language] || translations.english;
@@ -136,7 +133,7 @@ window.saveProfileInfo = function() {
 }
 
 /**
- * Updates THEME and LANGUAGE settings immediately. (UPDATED)
+ * Updates THEME and LANGUAGE settings immediately.
  */
 window.updateQuickSettings = function(settingType, value) {
     const newSettings = { ...currentSettings };
@@ -229,7 +226,7 @@ function applySettings() {
     const { theme, language } = currentSettings;
     const isLight = theme === 'light';
 
-    // Apply Theme (using custom CSS classes defined in style.css)
+    // Apply Theme
     const bodyRoot = document.getElementById('body-root');
     const headerSticky = document.getElementById('header-sticky');
     const navBar = document.getElementById('nav-bar');
@@ -492,7 +489,7 @@ function displayProfileSettings() {
 
     // Box ကို အလယ်ဗဟိုသို့ ရွှေ့ခြင်း (mx-auto)၊ အကျယ် max-w-5xl နှင့် အမြင့် h-full ယူခြင်း
     moviesContainer.innerHTML = `
-        <div class="w-full max-w-5xl **mx-auto** p-8 **h-full** rounded-xl shadow-2xl border ${bgColorClass} **overflow-y-auto**">
+        <div class="w-full max-w-5xl mx-auto p-8 h-full rounded-xl shadow-2xl border ${bgColorClass} overflow-y-auto">
             <h2 class="text-3xl font-bold mb-8 text-primary text-center">${t.settingsTitle}</h2>
             
             <form id="profile-info-form" onsubmit="event.preventDefault(); saveProfileInfo();" class="mb-8 p-4 rounded-lg border border-primary/50">
@@ -577,7 +574,7 @@ function createMovieCard(movie) {
     card.className = `movie-card-bg ${bgColorClass} rounded-xl shadow-lg hover:shadow-primary/50 transition duration-300 transform hover:scale-[1.03] overflow-hidden cursor-pointer **w-full** flex flex-col`;
     card.setAttribute('data-movie-id', movieId);
 
-    // ပုံသေအမြင့် (165px) ကိုဖယ်ရှားပြီး aspect-ratio ကိုသုံးသည်။ (3:4)
+    // ပုံသေအမြင့် (165px) ကိုဖယ်ရှားပြီး aspect-ratio (3:4) ကိုသုံးသည်။
     card.innerHTML = `
         <div class="relative w-full **aspect-[3/4]**">
             <img src="${movie.thumb}" alt="${movie.title}" onerror="this.onerror=null;this.src='https://placehold.co/110x165/1a1a1a/cccccc?text=Error'" class="w-full h-full **object-cover** rounded-t-xl **absolute**">
@@ -676,7 +673,7 @@ window.closeCustomAlert = function() {
 }
 
 /**
- * Opens the Adult Content modal. (NEW)
+ * Opens the Adult Content modal.
  */
 window.openAdultContentModal = function() {
     document.getElementById('adult-content-modal').classList.remove('hidden');
@@ -691,7 +688,7 @@ window.openAdultContentModal = function() {
 }
 
 /**
- * Closes the Adult Content modal and optionally navigates to Home view. (NEW)
+ * Closes the Adult Content modal and optionally navigates to Home view.
  */
 window.closeAdultContentModal = function(shouldNavigateHome = true) {
     document.getElementById('adult-content-modal').classList.add('hidden');
@@ -708,7 +705,7 @@ window.closeAdultContentModal = function(shouldNavigateHome = true) {
 }
 
 /**
- * Copies text to clipboard and shows an alert. (NEW)
+ * Copies text to clipboard and shows an alert.
  */
 window.copyToClipboard = function(text) {
     const t = translations[currentSettings.language] || translations.english;
