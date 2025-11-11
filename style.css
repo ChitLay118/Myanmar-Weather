@@ -9,15 +9,41 @@
     scrollbar-width: none;  /* Firefox */
 }
 
-/* Basic body styles that Tailwind doesn't fully cover */
+/* Base Dark Theme (Default) */
 .bg-darkbg {
-    background-color: #1A1A1A; /* Dark Gray/Black for main background */
+    background-color: #1A1A1A; 
 }
-
 .bg-midbg {
-    background-color: #262626; /* Slightly lighter gray for nav bars/modals */
+    background-color: #262626; 
+}
+.text-primary {
+    color: #FFD700; 
 }
 
-.text-primary {
-    color: #FFD700; /* Gold/Yellow for highlights */
+/* !!! NEW: Light Theme Classes */
+.light-mode .bg-darkbg {
+    background-color: #F8F8F8; /* Light background */
+}
+.light-mode .bg-midbg {
+    background-color: #FFFFFF; /* White nav/header/modal */
+}
+.light-mode .text-white {
+    color: #1A1A1A; /* Black text */
+}
+.light-mode .text-primary {
+    color: #CC9900; /* Darker Gold for visibility */
+}
+.light-mode .bg-gray-800 {
+    background-color: #E5E5E5 !important; /* Light gray buttons/cards */
+    color: #1A1A1A !important;
+}
+.light-mode .bg-gray-800:hover {
+    background-color: #CCCCCC !important;
+}
+.light-mode .nav-btn.text-gray-400 {
+    color: #6B7280 !important;
+}
+/* Ensure sticky header border changes */
+.light-mode #header-sticky {
+    border-color: #E5E5E5;
 }
