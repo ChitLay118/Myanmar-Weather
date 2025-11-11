@@ -1,194 +1,128 @@
 {
-  "videos": {
-    "action": [
-      {
-        "title": "Fast & Furious 9",
-        "thumb": "https://images.unsplash.com/photo-1549487737-124b898239e2?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/aT582t0j91c?autoplay=1",
-        "id": "action-0"
-      },
-      {
-        "title": "Mission Impossible 7",
-        "thumb": "https://images.unsplash.com/photo-1534438327276-88898952467d?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/akL0GzB6tHk?autoplay=1",
-        "id": "action-1"
-      },
-      {
-        "title": "Extraction 2",
-        "thumb": "https://images.unsplash.com/photo-1620800366657-3f3c83b8b0e7?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/Y2k_eQ-Q_c0?autoplay=1",
-        "id": "action-2"
-      },
-      {
-        "title": "John Wick 4",
-        "thumb": "https://images.unsplash.com/photo-1534438327276-88898952467d?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/qEVQ2t7y4wQ?autoplay=1",
-        "id": "action-3"
-      },
-      {
-        "title": "Equalizer 3",
-        "thumb": "https://images.unsplash.com/photo-1549487737-124b898239e2?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/c-X86E20M0c?autoplay=1",
-        "id": "action-4"
-      }
-    ],
-    "drama": [
-      {
-        "title": "The Shawshank Redemption",
-        "thumb": "https://images.unsplash.com/photo-1511216503799-a681c2f1f0a2?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/6hB3S9bIztk?autoplay=1",
-        "id": "drama-0"
-      },
-      {
-        "title": "Forrest Gump",
-        "thumb": "https://images.unsplash.com/photo-1511216503799-a681c2f1f0a2?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/bT2W-f2j37E?autoplay=1",
-        "id": "drama-1"
-      },
-      {
-        "title": "Green Mile",
-        "thumb": "https://images.unsplash.com/photo-1511216503799-a681c2f1f0a2?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/Ki4F5tN4D6U?autoplay=1",
-        "id": "drama-2"
-      }
-    ],
-    "cartoon": [
-      {
-        "title": "Toy Story 4",
-        "thumb": "https://images.unsplash.com/photo-1544865184-7f6c31f4e1c2?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/wmiIUN-7e8A?autoplay=1",
-        "id": "cartoon-0"
-      },
-      {
-        "title": "Frozen 2",
-        "thumb": "https://images.unsplash.com/photo-1544865184-7f6c31f4e1c2?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/eSg0sXwN06Y?autoplay=1",
-        "id": "cartoon-1"
-      }
-    ],
-    "romance": [
-      {
-        "title": "La La Land",
-        "thumb": "https://images.unsplash.com/photo-1502685104226-ee323758268c?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/0x-f5-yXgN8?autoplay=1",
-        "id": "romance-0"
-      }
-    ],
-    "myanmar": [
-      {
-        "title": "Moe Htin",
-        "thumb": "https://images.unsplash.com/photo-1520330663674-0f2c4172f3a6?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/sU2R7rSj1Sg?autoplay=1",
-        "id": "myanmar-0"
-      },
-      {
-        "title": "Shwe La Min",
-        "thumb": "https://images.unsplash.com/photo-1520330663674-0f2c4172f3a6?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/5T32x60i1kM?autoplay=1",
-        "id": "myanmar-1"
-      }
-    ],
-    "trending": [
-      {
-        "title": "TOP 1: The Creator",
-        "thumb": "https://images.unsplash.com/photo-1549487737-124b898239e2?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/sR8Yv65Ff5Y?autoplay=1",
-        "id": "trending-0"
-      },
-      {
-        "title": "TOP 2: The Meg 2",
-        "thumb": "https://images.unsplash.com/photo-1534438327276-88898952467d?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/vEwR6zP92-k?autoplay=1",
-        "id": "trending-1"
-      },
-      {
-        "title": "TOP 3: Oppenheimer",
-        "thumb": "https://images.unsplash.com/photo-1620800366657-3f3c83b8b0e7?w=100&h=100&auto=format&fit=crop&q=80",
-        "src": "https://www.youtube.com/embed/bLh35g54b6Y?autoplay=1",
-        "id": "trending-2"
-      }
-    ]
-  },
-  "translations": {
-    "myanmar": {
-      "title": "WY ရုပ်ရှင်သေတ္တာ",
-      "action": "လှုပ်ရှားမှု",
-      "drama": "ဒရာမာ",
-      "cartoon": "ကာတွန်း",
-      "romance": "အချစ်",
-      "myanmar": "မြန်မာ",
-      "navHome": "မူလစာမျက်နှာ",
-      "navTrending": "ခေတ်စားနေသည်",
-      "navFavorites": "အနှစ်သက်ဆုံး",
-      "navProfile": "အသုံးပြုသူ",
-      "selectMovie": "ရုပ်ရှင်ကို ရွေးချယ်ပါ",
-      "nowPlaying": "ကြည့်နေသည်",
-      "favoritesHeader": "အနှစ်သက်ဆုံး ရုပ်ရှင်များ",
-      "trendingHeader": "ခေတ်စားနေသော ရုပ်ရှင်များ",
-      "noContent": "ဤကဏ္ဍတွင် ရုပ်ရှင်များ မရှိပါ",
-      "noFavorites": "အနှစ်သက်ဆုံးများ မရှိသေးပါ",
-      "selectCategory": "ကဏ္ဍ",
-      "settingsTitle": "အသုံးပြုသူ ဆက်တင်များ",
-      "settingsName": "အမည်",
-      "settingsEmail": "အီးမေးလ်",
-      "saveSettings": "သိမ်းဆည်းမည်",
-      "settingsSavedSuccess": "ဆက်တင်များ သိမ်းဆည်းပြီးပါပြီ။",
-      "settingsSaveError": "ဆက်တင် သိမ်းဆည်းရာတွင် အမှားဖြစ်ပါသည်။",
-      "appearanceTitle": "အသွင်အပြင်",
-      "settingsTheme": "အပြင်အဆင်",
-      "themeDark": "အမှောင်",
-      "themeLight": "အလင်း",
-      "settingsLanguage": "ဘာသာစကား",
-      "langMyanmar": "မြန်မာ",
-      "langEnglish": "အင်္ဂလိပ်",
-      "profileInfoTitle": "ကိုယ်ရေးအချက်အလက်",
-      "contactTitle": "ဆက်သွယ်ရန်",
-      "copyText": "ကူးယူရန်",
-      "copySuccess": "ကို ကူးယူပြီးပါပြီ",
-      "adultContent": "🔞 အထူးကဏ္ဍ (၁၈+)",
-      "selectMovieForFavorite": "အနှစ်သက်ဆုံးထည့်ရန် ရုပ်ရှင်တစ်ခုကို ဦးစွာရွေးချယ်ပါ။",
-      "addedToFav": "ကို အနှစ်သက်ဆုံးများထဲသို့ ထည့်လိုက်ပါပြီ။",
-      "removedFromFav": "ကို အနှစ်သက်ဆုံးများထဲမှ ဖယ်ထုတ်လိုက်ပါပြီ။"
+    "videos": {
+        "action": [
+            {
+                "id": "v1",
+                "title": "Action Movie 1: The Matrix",
+                "thumb": "https://img.youtube.com/vi/vL95W9v8s8k/hqdefault.jpg",
+                "src": "https://www.youtube.com/embed/vL95W9v8s8k?autoplay=1",
+                "adult": false
+            },
+            {
+                "id": "v2",
+                "title": "Action Movie 2: Inception",
+                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
+                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1",
+                "adult": false
+            },
+            {
+                "id": "v3",
+                "title": "Action Movie 3: Mad Max",
+                "thumb": "https://img.youtube.com/vi/hEJnMQG9ev8/hqdefault.jpg",
+                "src": "https://www.youtube.com/embed/hEJnMQG9ev8?autoplay=1",
+                "adult": false
+            }
+        ],
+        "drama": [
+            {
+                "id": "v4",
+                "title": "Drama Movie 1: The Social Network",
+                "thumb": "https://img.youtube.com/vi/lB95sN3y5K4/hqdefault.jpg",
+                "src": "https://www.youtube.com/embed/lB95sN3y5K4?autoplay=1",
+                "adult": false
+            },
+            {
+                "id": "v5",
+                "title": "Drama Movie 2: Parasite (Official Trailer)",
+                "thumb": "https://img.youtube.com/vi/5xHwT4h3j84/hqdefault.jpg",
+                "src": "https://www.youtube.com/embed/5xHwT4h3j84?autoplay=1",
+                "adult": false
+            }
+        ],
+        "cartoon": [
+            {
+                "id": "v6",
+                "title": "Cartoon 1: Toy Story (Clip)",
+                "thumb": "https://img.youtube.com/vi/ZZv1K7s2kI8/hqdefault.jpg",
+                "src": "https://www.youtube.com/embed/ZZv1K7s2kI8?autoplay=1",
+                "adult": false
+            }
+        ],
+        "romance": [
+            {
+                "id": "v7",
+                "title": "Romance 1: La La Land (Trailer)",
+                "thumb": "https://img.youtube.com/vi/jemL1vT4sXo/hqdefault.jpg",
+                "src": "https://www.youtube.com/embed/jemL1vT4sXo?autoplay=1",
+                "adult": false
+            }
+        ],
+        "myanmar": [
+            {
+                "id": "v8",
+                "title": "Myanmar Movie 1: ရန်သူမျိုးငါ့သွေး",
+                "thumb": "https://img.youtube.com/vi/vKx2Xm5qfM4/hqdefault.jpg",
+                "src": "https://www.youtube.com/embed/vKx2Xm5qfM4?autoplay=1",
+                "adult": false
+            }
+        ]
     },
-    "english": {
-      "title": "WY MovieBox",
-      "action": "Action",
-      "drama": "Drama",
-      "cartoon": "Cartoon",
-      "romance": "Romance",
-      "myanmar": "Myanmar",
-      "navHome": "Home",
-      "navTrending": "Trending",
-      "navFavorites": "Favorites",
-      "navProfile": "Profile",
-      "selectMovie": "Select a Movie",
-      "nowPlaying": "Playing",
-      "favoritesHeader": "Favorite Movies",
-      "trendingHeader": "Trending Movies",
-      "noContent": "No movies in this category",
-      "noFavorites": "No favorites yet",
-      "selectCategory": "Category",
-      "settingsTitle": "User Settings",
-      "settingsName": "Name",
-      "settingsEmail": "Email",
-      "saveSettings": "Save",
-      "settingsSavedSuccess": "Settings saved successfully.",
-      "settingsSaveError": "Error saving settings.",
-      "appearanceTitle": "Appearance",
-      "settingsTheme": "Theme",
-      "themeDark": "Dark",
-      "themeLight": "Light",
-      "settingsLanguage": "Language",
-      "langMyanmar": "Myanmar",
-      "langEnglish": "English",
-      "profileInfoTitle": "Profile Information",
-      "contactTitle": "Contact Info",
-      "copyText": "Copy",
-      "copySuccess": "copied to clipboard",
-      "adultContent": "🔞 Special Content (18+)",
-      "selectMovieForFavorite": "Please select a movie to add to favorites.",
-      "addedToFav": "added to favorites.",
-      "removedFromFav": "removed from favorites."
+    "translations": {
+        "english": {
+            "title": "WY MovieBox",
+            "selectMovie": "Select a Movie",
+            "nowPlaying": "Play Now",
+            "noContent": "No Content Available",
+            "trendingTitle": "Trending Movies",
+            "favoritesTitle": "My Favorites",
+            "noFavorites": "No favorite movies added yet.",
+            "profileTitle": "User Profile",
+            "settingsTitle": "Settings",
+            "languageLabel": "Language:",
+            "themeLabel": "Theme:",
+            "resetData": "Reset App Data",
+            "langMyanmar": "Myanmar",
+            "langEnglish": "English",
+            "adultWarning": "This content may be inappropriate for viewers under the age of 18.",
+            "confirmAdult": "I am 18 or older",
+            "cancel": "Cancel",
+            "navHome": "Home",
+            "navTrending": "Trending",
+            "navFavorites": "Favorites",
+            "navProfile": "Profile",
+            "action": "Action",
+            "drama": "Drama",
+            "cartoon": "Cartoon",
+            "romance": "Romance",
+            "myanmar": "Myanmar"
+        },
+        "myanmar": {
+            "title": "WY ရုပ်ရှင်သေတ္တာ",
+            "selectMovie": "ရုပ်ရှင်ကို ရွေးချယ်ပါ",
+            "nowPlaying": "ချက်ချင်းကြည့်ပါ",
+            "noContent": "လက်ရှိ Data များ မရှိပါ",
+            "trendingTitle": "ခေတ်စားနေသော ရုပ်ရှင်များ",
+            "favoritesTitle": "အနှစ်သက်ဆုံးများ",
+            "noFavorites": "အနှစ်သက်ဆုံး ရုပ်ရှင်များ မထည့်ရသေးပါ",
+            "profileTitle": "အသုံးပြုသူအချက်အလက်",
+            "settingsTitle": "ချိန်ညှိချက်များ",
+            "languageLabel": "ဘာသာစကား:",
+            "themeLabel": "မျက်နှာပြင်ပုံစံ:",
+            "resetData": "App Data များ ရှင်းလင်းပါ",
+            "langMyanmar": "မြန်မာ",
+            "langEnglish": "အင်္ဂလိပ်",
+            "adultWarning": "ဤအကြောင်းအရာသည် အသက် ၁၈ နှစ်အောက် ကြည့်ရှုသူများအတွက် မသင့်လျော်ပါ။",
+            "confirmAdult": "ကျွန်ုပ်သည် အသက် ၁၈ နှစ်နှင့်အထက်ဖြစ်ပါသည်",
+            "cancel": "မလုပ်တော့ပါ",
+            "navHome": "မူလစာမျက်နှာ",
+            "navTrending": "ခေတ်စားနေသည်",
+            "navFavorites": "အနှစ်သက်ဆုံး",
+            "navProfile": "အသုံးပြုသူ",
+            "action": "လှုပ်ရှားမှု",
+            "drama": "ဒရာမာ",
+            "cartoon": "ကာတွန်း",
+            "romance": "အချစ်",
+            "myanmar": "မြန်မာ"
+        }
     }
-  }
 }
