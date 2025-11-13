@@ -1,85 +1,266 @@
 {
-    "videos": {
-        "action": [
-            {
-                "title": "Action Movie 1: The Matrix",
-                "thumb": "https://img.youtube.com/vi/vL95W9v8s8k/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/vL95W9v8s8k?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            },
-            {
-                "title": "Action Movie 2: Inception",
-                "thumb": "https://img.youtube.com/vi/YoHD9XEInc0/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/YoHD9XEInc0?autoplay=1"
-            }
-        ],
-        "drama": [
-            {
-                "title": "Drama Movie 1: The Social Network",
-                "thumb": "https://img.youtube.com/vi/lB95sN3y5K4/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/lB95sN3y5K4?autoplay=1"
-            }
-        ],
-        "cartoon": [
-            {
-                "title": "Cartoon 1: Toy Story (Clip)",
-                "thumb": "https://img.youtube.com/vi/ZZv1K7s2kI8/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/ZZv1K7s2kI8?autoplay=1"
-            }
-        ],
-        "romance": [
-            {
-                "title": "Romance 1: La La Land (Trailer)",
-                "thumb": "https://img.youtube.com/vi/jemL1vT4sXo/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/jemL1vT4sXo?autoplay=1"
-            }
-        ],
-        "myanmar": [
-            {
-                "title": "Myanmar Movie 1: ရန်သူမျိုးငါ့သွေး",
-                "thumb": "https://img.youtube.com/vi/vKx2Xm5qfM4/hqdefault.jpg",
-                "src": "https://www.youtube.com/embed/vKx2Xm5qfM4?autoplay=1"
-            }
-        ],
+  "videos": {
+    "action": [
+      {
+        "title": "John Wick - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/C0BMx-qxsP4/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/C0BMx-qxsP4?autoplay=1"
+      },
+      {
+        "title": "Mission Impossible - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/wb49-oV0F78/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/wb49-oV0F78?autoplay=1"
+      },
+      {
+        "title": "Fast and Furious - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/ZQ3U0f2X4Q8/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/ZQ3U0f2X4Q8?autoplay=1"
+      },
+      {
+        "title": "The Bourne Identity - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/cD-uV6x0WRE/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/cD-uV6x0WRE?autoplay=1"
+      },
+      {
+        "title": "Taken - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/uPJVJBm9TPA/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/uPJVJBm9TPA?autoplay=1"
+      },
+      {
+        "title": "Die Hard - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/2TQ-pOvI6Xo/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/2TQ-pOvI6Xo?autoplay=1"
+      },
+      {
+        "title": "The Dark Knight - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/EXeTwQWrcwY/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/EXeTwQWrcwY?autoplay=1"
+      },
+      {
+        "title": "Mad Max - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/hEJnMQG9ev8/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/hEJnMQG9ev8?autoplay=1"
+      },
+      {
+        "title": "The Raid - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/m6Q7Kn3p-8g/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/m6Q7Kn3p-8g?autoplay=1"
+      },
+      {
+        "title": "Kingsman - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/kl8F-8tR8to/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/kl8F-8tR8to?autoplay=1"
+      }
+    ],
+    "drama": [
+      {
+        "title": "The Shawshank Redemption - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/6hB3S9bIaco/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/6hB3S9bIaco?autoplay=1"
+      },
+      {
+        "title": "Forrest Gump - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/bLvqoHBptjg/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/bLvqoHBptjg?autoplay=1"
+      },
+      {
+        "title": "The Pursuit of Happyness - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/DMOBlEcRuw8/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/DMOBlEcRuw8?autoplay=1"
+      },
+      {
+        "title": "A Beautiful Mind - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/aS_d0Ayjw4o/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/aS_d0Ayjw4o?autoplay=1"
+      },
+      {
+        "title": "Good Will Hunting - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/PaZVjZEFkRs/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/PaZVjZEFkRs?autoplay=1"
+      },
+      {
+        "title": "The Green Mile - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/Bg7epsq0OIQ/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/Bg7epsq0OIQ?autoplay=1"
+      },
+      {
+        "title": "Schindler's List - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/mxphAlJID9U/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/mxphAlJID9U?autoplay=1"
+      },
+      {
+        "title": "The Godfather - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/UaVTIH8mujA/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/UaVTIH8mujA?autoplay=1"
+      },
+      {
+        "title": "Fight Club - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/qtRKdVHc-cE/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/qtRKdVHc-cE?autoplay=1"
+      },
+      {
+        "title": "The Prestige - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/RLtaA9fFNXU/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/RLtaA9fFNXU?autoplay=1"
+      }
+    ],
+    "cartoon": [
+      {
+        "title": "Spirited Away - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/ByXuk9QqQkk/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/ByXuk9QqQkk?autoplay=1"
+      },
+      {
+        "title": "Your Name - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/3mK2aYt0d_c/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/3mK2aYt0d_c?autoplay=1"
+      },
+      {
+        "title": "Howl's Moving Castle - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/iwROgK94zcM/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/iwROgK94zcM?autoplay=1"
+      },
+      {
+        "title": "My Neighbor Totoro - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/92a7Hj0ijLs/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/92a7Hj0ijLs?autoplay=1"
+      },
+      {
+        "title": "Weathering With You - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/Q6iK6DjV_iE/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/Q6iK6DjV_iE?autoplay=1"
+      },
+      {
+        "title": "Princess Mononoke - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/4OiMOHRDs14/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/4OiMOHRDs14?autoplay=1"
+      },
+      {
+        "title": "A Silent Voice - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/nfK6UgLra7g/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/nfK6UgLra7g?autoplay=1"
+      },
+      {
+        "title": "Ponyo - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/CsR3KVgFz_w/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/CsR3KVgFz_w?autoplay=1"
+      },
+      {
+        "title": "Kiki's Delivery Service - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/4bG17OYs-GA/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/4bG17OYs-GA?autoplay=1"
+      },
+      {
+        "title": "The Garden of Words - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/5Z3K6H7X8J9/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/5Z3K6H7X8J9?autoplay=1"
+      }
+    ],
+    "romance": [
+      {
+        "title": "The Notebook - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/BjJcYdEOI0k/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/BjJcYdEOI0k?autoplay=1"
+      },
+      {
+        "title": "Titanic - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/kVrqfYjkTdQ/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/kVrqfYjkTdQ?autoplay=1"
+      },
+      {
+        "title": "A Walk to Remember - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/pR6-MV_cCxU/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/pR6-MV_cCxU?autoplay=1"
+      },
+      {
+        "title": "The Vow - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/IhZ_M6Z-NbM/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/IhZ_M6Z-NbM?autoplay=1"
+      },
+      {
+        "title": "Me Before You - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/Eh993__rOxA/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/Eh993__rOxA?autoplay=1"
+      },
+      {
+        "title": "La La Land - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/0pdqf4P9MB8/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/0pdqf4P9MB8?autoplay=1"
+      },
+      {
+        "title": "Pride and Prejudice - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/1dYv5u6v55Y/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/1dYv5u6v55Y?autoplay=1"
+      },
+      {
+        "title": "The Fault in Our Stars - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/9ItBvH5J6ss/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/9ItBvH5J6ss?autoplay=1"
+      },
+      {
+        "title": "Eternal Sunshine - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/07-QBnEkgXU/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/07-QBnEkgXU?autoplay=1"
+      },
+      {
+        "title": "Before Sunrise - မြန်မာစာတန်းထိုး",
+        "thumb": "https://img.youtube.com/vi/9v6X1Z4RfUU/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/9v6X1Z4RfUU?autoplay=1"
+      }
+    ],
+    "myanmar": [
+      {
+        "title": "ရန်သူမျိုးငါ့သွေး - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/vKx2Xm5qfM4/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/vKx2Xm5qfM4?autoplay=1"
+      },
+      {
+        "title": "ကျေးဇူးတော် - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/6wWKhFqN82g/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/6wWKhFqN82g?autoplay=1"
+      },
+      {
+        "title": "သူရ - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/3xSqUf2VX_c/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/3xSqUf2VX_c?autoplay=1"
+      },
+      {
+        "title": "မောင်မယ်သံသာ - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/V9xUYdE1Q8w/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/V9xUYdE1Q8w?autoplay=1"
+      },
+      {
+        "title": "ပြည်ကြီးမဏ္ဍိုင် - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/4K7Qv2t3hY4/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/4K7Qv2t3hY4?autoplay=1"
+      },
+      {
+        "title": "သိုင်းတော်သား - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/9K3vQ5wR3tY/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/9K3vQ5wR3tY?autoplay=1"
+      },
+      {
+        "title": "ရာဇာဓိပတိ - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/1A2b3C4d5E6/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/1A2b3C4d5E6?autoplay=1"
+      },
+      {
+        "title": "ရွှေရင်သွေး - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/7M2vN4qV8pQ/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/7M2vN4qV8pQ?autoplay=1"
+      },
+      {
+        "title": "သက်လှယောသူ - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/5T6u7V8w9X0/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/5T6u7V8w9X0?autoplay=1"
+      },
+      {
+        "title": "ချစ်တဲ့သူရယ် - မြန်မာဇာတ်ကား",
+        "thumb": "https://img.youtube.com/vi/2X4u5V8s9tR/hqdefault.jpg",
+        "src": "https://www.youtube.com/embed/2X4u5V8s9tR?autoplay=1"
+      }
+    ],
+      
         "trending": [
              {
                 "title": "Trending Hit 1: Mad Max Trailer",
